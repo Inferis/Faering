@@ -30,6 +30,16 @@
 		E20D4BEE14DEAAA0007A33CB /* IIViewDeckController.m in Sources */ = {isa = PBXBuildFile; fileRef = E20D4BDC14DEAAA0007A33CB /* IIViewDeckController.m */; };
 		E20D4BEF14DEAAA0007A33CB /* WrappedController.m in Sources */ = {isa = PBXBuildFile; fileRef = E20D4BDE14DEAAA0007A33CB /* WrappedController.m */; };
 		E20D4BFA14DEC23F007A33CB /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E20D4BF914DEC23F007A33CB /* CoreData.framework */; };
+		E20D4C0314DEC2E3007A33CB /* RootPadController.m in Sources */ = {isa = PBXBuildFile; fileRef = E20D4BFE14DEC2E3007A33CB /* RootPadController.m */; };
+		E20D4C0414DEC2E3007A33CB /* RootPhoneController.m in Sources */ = {isa = PBXBuildFile; fileRef = E20D4C0114DEC2E3007A33CB /* RootPhoneController.m */; };
+		E20D4C0814DEC354007A33CB /* SimListController.m in Sources */ = {isa = PBXBuildFile; fileRef = E20D4C0614DEC354007A33CB /* SimListController.m */; };
+		E20D4C0914DEC354007A33CB /* SimListView.xib in Resources */ = {isa = PBXBuildFile; fileRef = E20D4C0714DEC354007A33CB /* SimListView.xib */; };
+		E20D4C0D14DEC3BF007A33CB /* SimOverviewPhoneController.m in Sources */ = {isa = PBXBuildFile; fileRef = E20D4C0B14DEC3BF007A33CB /* SimOverviewPhoneController.m */; };
+		E20D4C0E14DEC3BF007A33CB /* SimOverviewPhoneView.xib in Resources */ = {isa = PBXBuildFile; fileRef = E20D4C0C14DEC3BF007A33CB /* SimOverviewPhoneView.xib */; };
+		E20D4C1714DEC559007A33CB /* SimUsagePhoneController.m in Sources */ = {isa = PBXBuildFile; fileRef = E20D4C1514DEC558007A33CB /* SimUsagePhoneController.m */; };
+		E20D4C1814DEC559007A33CB /* SimUsagePhoneView.xib in Resources */ = {isa = PBXBuildFile; fileRef = E20D4C1614DEC558007A33CB /* SimUsagePhoneView.xib */; };
+		E20D4C1C14DEC578007A33CB /* SimTopupsPhoneController.m in Sources */ = {isa = PBXBuildFile; fileRef = E20D4C1A14DEC577007A33CB /* SimTopupsPhoneController.m */; };
+		E20D4C1D14DEC578007A33CB /* SimTopupsPhoneView.xib in Resources */ = {isa = PBXBuildFile; fileRef = E20D4C1B14DEC578007A33CB /* SimTopupsPhoneView.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -79,6 +89,22 @@
 		E20D4BDE14DEAAA0007A33CB /* WrappedController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WrappedController.m; sourceTree = "<group>"; };
 		E20D4BDF14DEAAA0007A33CB /* CommonMacros.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommonMacros.h; sourceTree = "<group>"; };
 		E20D4BF914DEC23F007A33CB /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		E20D4BFD14DEC2E3007A33CB /* RootPadController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RootPadController.h; sourceTree = "<group>"; };
+		E20D4BFE14DEC2E3007A33CB /* RootPadController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RootPadController.m; sourceTree = "<group>"; };
+		E20D4C0014DEC2E3007A33CB /* RootPhoneController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RootPhoneController.h; sourceTree = "<group>"; };
+		E20D4C0114DEC2E3007A33CB /* RootPhoneController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RootPhoneController.m; sourceTree = "<group>"; };
+		E20D4C0514DEC354007A33CB /* SimListController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SimListController.h; sourceTree = "<group>"; };
+		E20D4C0614DEC354007A33CB /* SimListController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SimListController.m; sourceTree = "<group>"; };
+		E20D4C0714DEC354007A33CB /* SimListView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SimListView.xib; sourceTree = "<group>"; };
+		E20D4C0A14DEC3BF007A33CB /* SimOverviewPhoneController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SimOverviewPhoneController.h; sourceTree = "<group>"; };
+		E20D4C0B14DEC3BF007A33CB /* SimOverviewPhoneController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SimOverviewPhoneController.m; sourceTree = "<group>"; };
+		E20D4C0C14DEC3BF007A33CB /* SimOverviewPhoneView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SimOverviewPhoneView.xib; sourceTree = "<group>"; };
+		E20D4C1414DEC558007A33CB /* SimUsagePhoneController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SimUsagePhoneController.h; sourceTree = "<group>"; };
+		E20D4C1514DEC558007A33CB /* SimUsagePhoneController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SimUsagePhoneController.m; sourceTree = "<group>"; };
+		E20D4C1614DEC558007A33CB /* SimUsagePhoneView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SimUsagePhoneView.xib; sourceTree = "<group>"; };
+		E20D4C1914DEC577007A33CB /* SimTopupsPhoneController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SimTopupsPhoneController.h; sourceTree = "<group>"; };
+		E20D4C1A14DEC577007A33CB /* SimTopupsPhoneController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SimTopupsPhoneController.m; sourceTree = "<group>"; };
+		E20D4C1B14DEC578007A33CB /* SimTopupsPhoneView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SimTopupsPhoneView.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -129,6 +155,7 @@
 			children = (
 				E20D4BA814DEAA58007A33CB /* Supporting Files */,
 				E20D4BB814DEAAA0007A33CB /* Vendor */,
+				E20D4BFB14DEC2E3007A33CB /* UI */,
 				E20D4BB014DEAA58007A33CB /* AppDelegate.h */,
 				E20D4BB114DEAA58007A33CB /* AppDelegate.m */,
 			);
@@ -220,6 +247,53 @@
 			path = ViewDeck;
 			sourceTree = "<group>";
 		};
+		E20D4BFB14DEC2E3007A33CB /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				E20D4BFC14DEC2E3007A33CB /* iPad */,
+				E20D4BFF14DEC2E3007A33CB /* iPhone */,
+				E20D4C0214DEC2E3007A33CB /* Shared */,
+			);
+			path = UI;
+			sourceTree = "<group>";
+		};
+		E20D4BFC14DEC2E3007A33CB /* iPad */ = {
+			isa = PBXGroup;
+			children = (
+				E20D4BFD14DEC2E3007A33CB /* RootPadController.h */,
+				E20D4BFE14DEC2E3007A33CB /* RootPadController.m */,
+			);
+			path = iPad;
+			sourceTree = "<group>";
+		};
+		E20D4BFF14DEC2E3007A33CB /* iPhone */ = {
+			isa = PBXGroup;
+			children = (
+				E20D4C0014DEC2E3007A33CB /* RootPhoneController.h */,
+				E20D4C0114DEC2E3007A33CB /* RootPhoneController.m */,
+				E20D4C0A14DEC3BF007A33CB /* SimOverviewPhoneController.h */,
+				E20D4C0B14DEC3BF007A33CB /* SimOverviewPhoneController.m */,
+				E20D4C0C14DEC3BF007A33CB /* SimOverviewPhoneView.xib */,
+				E20D4C1414DEC558007A33CB /* SimUsagePhoneController.h */,
+				E20D4C1514DEC558007A33CB /* SimUsagePhoneController.m */,
+				E20D4C1614DEC558007A33CB /* SimUsagePhoneView.xib */,
+				E20D4C1914DEC577007A33CB /* SimTopupsPhoneController.h */,
+				E20D4C1A14DEC577007A33CB /* SimTopupsPhoneController.m */,
+				E20D4C1B14DEC578007A33CB /* SimTopupsPhoneView.xib */,
+			);
+			path = iPhone;
+			sourceTree = "<group>";
+		};
+		E20D4C0214DEC2E3007A33CB /* Shared */ = {
+			isa = PBXGroup;
+			children = (
+				E20D4C0514DEC354007A33CB /* SimListController.h */,
+				E20D4C0614DEC354007A33CB /* SimListController.m */,
+				E20D4C0714DEC354007A33CB /* SimListView.xib */,
+			);
+			path = Shared;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -272,6 +346,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				E20D4BAC14DEAA58007A33CB /* InfoPlist.strings in Resources */,
+				E20D4C0914DEC354007A33CB /* SimListView.xib in Resources */,
+				E20D4C0E14DEC3BF007A33CB /* SimOverviewPhoneView.xib in Resources */,
+				E20D4C1814DEC559007A33CB /* SimUsagePhoneView.xib in Resources */,
+				E20D4C1D14DEC578007A33CB /* SimTopupsPhoneView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -300,6 +378,12 @@
 				E20D4BED14DEAAA0007A33CB /* MRCoreDataAction.m in Sources */,
 				E20D4BEE14DEAAA0007A33CB /* IIViewDeckController.m in Sources */,
 				E20D4BEF14DEAAA0007A33CB /* WrappedController.m in Sources */,
+				E20D4C0314DEC2E3007A33CB /* RootPadController.m in Sources */,
+				E20D4C0414DEC2E3007A33CB /* RootPhoneController.m in Sources */,
+				E20D4C0814DEC354007A33CB /* SimListController.m in Sources */,
+				E20D4C0D14DEC3BF007A33CB /* SimOverviewPhoneController.m in Sources */,
+				E20D4C1714DEC559007A33CB /* SimUsagePhoneController.m in Sources */,
+				E20D4C1C14DEC578007A33CB /* SimTopupsPhoneController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

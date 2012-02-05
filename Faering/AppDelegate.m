@@ -7,29 +7,38 @@
 //
 
 #import "AppDelegate.h"
-//#import "IIViewDeckController.h"
+#import "RootPadController.h"
+#import "RootPhoneController.h"
+#import "WrappedController.h"
+
+@interface AppDelegate ()
+
+@property (strong, nonatomic) WrappedController* wrappedController;
+
+@end
 
 @implementation AppDelegate
 
 @synthesize window = _window;
+@synthesize rootController = _rootController;
+@synthesize wrappedController = _wrappedController;
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
 
-//    if (IsPad()) {
-//        [UISplitViewController alloc] ini
-//        
-//        self.rootV
-//    }
-//    else {
-//        SimOverviewController* overviewController = [[SimOverviewController alloc] initWithNibName:@"SimOverviewView" bundle:nil];
-//        SimOverviewController* listController = [[SimListController alloc] initWithNibName:@"SimListView" bundle:nil];
-//        self.rootController = [[IIViewDeckController alloc] initWithCenterViewController:overviewController leftViewController:listController];
-//    }
-//    
-//    [self.window addSubview:rootController.view];
-//    
+    if (IsIPad()) {
+        self.rootController = [[RootPadController alloc] init];
+    }
+    else {
+        self.rootController = [[RootPhoneController alloc] init];
+    }
+    
+    // wrap it
+    self.wrappedController = [[WrappedController alloc] initWithViewController:self.rootController];
+    self.wrappedController.view.frame = self.window.bounds;
+    [self.window addSubview:self.wrappedController.view];
+    
     self.window.backgroundColor = [UIColor blackColor];
     [self.window makeKeyAndVisible];
     return YES;
