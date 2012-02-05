@@ -7,6 +7,7 @@
 //
 
 #import "SimOverviewPhoneController.h"
+#import "IIViewDeckController.h"
 
 @implementation SimOverviewPhoneController
 
@@ -34,6 +35,7 @@
 {
     [super viewDidLoad];
 
+    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemOrganize target:self.viewDeckController action:@selector(toggleLeftView)];
 }
 
 - (void)viewDidUnload
