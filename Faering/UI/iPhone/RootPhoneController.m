@@ -11,6 +11,7 @@
 #import "SimOverviewPhoneController.h"
 #import "SimUsagePhoneController.h"
 #import "SimTopupsPhoneController.h"
+#import "Coby.h"
 
 @implementation RootPhoneController
 
@@ -22,7 +23,9 @@
     SimTopupsPhoneController* topupsController = [[SimTopupsPhoneController alloc] initWithNibName:@"SimTopupsPhoneView" bundle:nil];
     
     UITabBarController* tabController = [[UITabBarController alloc] init];
-    tabController.viewControllers = [NSArray arrayWithObjects:overviewController, usageController, topupsController, nil] ;
+    tabController.viewControllers = [[NSArray arrayWithObjects:overviewController, usageController, topupsController, nil] map:^id(id obj) {
+        return [[UINavigationController alloc] initWithRootViewController:obj];
+    }];
     self.centerController = tabController;
     
     self = [super initWithCenterViewController:self.centerController leftViewController:self.leftController];
