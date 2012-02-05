@@ -40,6 +40,11 @@
 		E20D4C1814DEC559007A33CB /* SimUsagePhoneView.xib in Resources */ = {isa = PBXBuildFile; fileRef = E20D4C1614DEC558007A33CB /* SimUsagePhoneView.xib */; };
 		E20D4C1C14DEC578007A33CB /* SimTopupsPhoneController.m in Sources */ = {isa = PBXBuildFile; fileRef = E20D4C1A14DEC577007A33CB /* SimTopupsPhoneController.m */; };
 		E20D4C1D14DEC578007A33CB /* SimTopupsPhoneView.xib in Resources */ = {isa = PBXBuildFile; fileRef = E20D4C1B14DEC578007A33CB /* SimTopupsPhoneView.xib */; };
+		E20D4C2A14DED346007A33CB /* NSArray+Coby.m in Sources */ = {isa = PBXBuildFile; fileRef = E20D4C2114DED346007A33CB /* NSArray+Coby.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		E20D4C2B14DED346007A33CB /* NSDate+Coby.m in Sources */ = {isa = PBXBuildFile; fileRef = E20D4C2314DED346007A33CB /* NSDate+Coby.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		E20D4C2C14DED346007A33CB /* NSDictionary+Coby.m in Sources */ = {isa = PBXBuildFile; fileRef = E20D4C2514DED346007A33CB /* NSDictionary+Coby.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		E20D4C2D14DED346007A33CB /* NSObject+Coby.m in Sources */ = {isa = PBXBuildFile; fileRef = E20D4C2714DED346007A33CB /* NSObject+Coby.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		E20D4C2E14DED346007A33CB /* NSString+Coby.m in Sources */ = {isa = PBXBuildFile; fileRef = E20D4C2914DED346007A33CB /* NSString+Coby.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -105,6 +110,17 @@
 		E20D4C1914DEC577007A33CB /* SimTopupsPhoneController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SimTopupsPhoneController.h; sourceTree = "<group>"; };
 		E20D4C1A14DEC577007A33CB /* SimTopupsPhoneController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SimTopupsPhoneController.m; sourceTree = "<group>"; };
 		E20D4C1B14DEC578007A33CB /* SimTopupsPhoneView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SimTopupsPhoneView.xib; sourceTree = "<group>"; };
+		E20D4C1F14DED346007A33CB /* Coby.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Coby.h; sourceTree = "<group>"; };
+		E20D4C2014DED346007A33CB /* NSArray+Coby.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSArray+Coby.h"; sourceTree = "<group>"; };
+		E20D4C2114DED346007A33CB /* NSArray+Coby.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSArray+Coby.m"; sourceTree = "<group>"; };
+		E20D4C2214DED346007A33CB /* NSDate+Coby.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate+Coby.h"; sourceTree = "<group>"; };
+		E20D4C2314DED346007A33CB /* NSDate+Coby.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate+Coby.m"; sourceTree = "<group>"; };
+		E20D4C2414DED346007A33CB /* NSDictionary+Coby.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDictionary+Coby.h"; sourceTree = "<group>"; };
+		E20D4C2514DED346007A33CB /* NSDictionary+Coby.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDictionary+Coby.m"; sourceTree = "<group>"; };
+		E20D4C2614DED346007A33CB /* NSObject+Coby.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+Coby.h"; sourceTree = "<group>"; };
+		E20D4C2714DED346007A33CB /* NSObject+Coby.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+Coby.m"; sourceTree = "<group>"; };
+		E20D4C2814DED346007A33CB /* NSString+Coby.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+Coby.h"; sourceTree = "<group>"; };
+		E20D4C2914DED346007A33CB /* NSString+Coby.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+Coby.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -177,6 +193,7 @@
 		E20D4BB814DEAAA0007A33CB /* Vendor */ = {
 			isa = PBXGroup;
 			children = (
+				E20D4C1E14DED345007A33CB /* coby */,
 				E20D4BB914DEAAA0007A33CB /* MagicalRecord */,
 				E20D4BDA14DEAAA0007A33CB /* ViewDeck */,
 			);
@@ -294,6 +311,24 @@
 			path = Shared;
 			sourceTree = "<group>";
 		};
+		E20D4C1E14DED345007A33CB /* coby */ = {
+			isa = PBXGroup;
+			children = (
+				E20D4C1F14DED346007A33CB /* Coby.h */,
+				E20D4C2014DED346007A33CB /* NSArray+Coby.h */,
+				E20D4C2114DED346007A33CB /* NSArray+Coby.m */,
+				E20D4C2214DED346007A33CB /* NSDate+Coby.h */,
+				E20D4C2314DED346007A33CB /* NSDate+Coby.m */,
+				E20D4C2414DED346007A33CB /* NSDictionary+Coby.h */,
+				E20D4C2514DED346007A33CB /* NSDictionary+Coby.m */,
+				E20D4C2614DED346007A33CB /* NSObject+Coby.h */,
+				E20D4C2714DED346007A33CB /* NSObject+Coby.m */,
+				E20D4C2814DED346007A33CB /* NSString+Coby.h */,
+				E20D4C2914DED346007A33CB /* NSString+Coby.m */,
+			);
+			path = coby;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -384,6 +419,11 @@
 				E20D4C0D14DEC3BF007A33CB /* SimOverviewPhoneController.m in Sources */,
 				E20D4C1714DEC559007A33CB /* SimUsagePhoneController.m in Sources */,
 				E20D4C1C14DEC578007A33CB /* SimTopupsPhoneController.m in Sources */,
+				E20D4C2A14DED346007A33CB /* NSArray+Coby.m in Sources */,
+				E20D4C2B14DED346007A33CB /* NSDate+Coby.m in Sources */,
+				E20D4C2C14DED346007A33CB /* NSDictionary+Coby.m in Sources */,
+				E20D4C2D14DED346007A33CB /* NSObject+Coby.m in Sources */,
+				E20D4C2E14DED346007A33CB /* NSString+Coby.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
