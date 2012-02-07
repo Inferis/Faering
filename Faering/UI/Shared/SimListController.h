@@ -8,8 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface SimListController : UIViewController <UITableViewDelegate, UITableViewDataSource>
-
-@property (atomic, retain) IBOutlet UITableView* tableView;
+@interface SimListController : UITableViewController
 
 @end

@@ -12,8 +12,6 @@
 
 #pragma mark - View lifecycle
 
-@synthesize tableView = _tableView;
-
 - (void)viewDidLoad
 {
     [super viewDidLoad];
