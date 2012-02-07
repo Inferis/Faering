@@ -45,6 +45,8 @@
 		E20D4C2C14DED346007A33CB /* NSDictionary+Coby.m in Sources */ = {isa = PBXBuildFile; fileRef = E20D4C2514DED346007A33CB /* NSDictionary+Coby.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		E20D4C2D14DED346007A33CB /* NSObject+Coby.m in Sources */ = {isa = PBXBuildFile; fileRef = E20D4C2714DED346007A33CB /* NSObject+Coby.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		E20D4C2E14DED346007A33CB /* NSString+Coby.m in Sources */ = {isa = PBXBuildFile; fileRef = E20D4C2914DED346007A33CB /* NSString+Coby.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		E279370114E1D9AB00822F86 /* AddAccountController.m in Sources */ = {isa = PBXBuildFile; fileRef = E27936FF14E1D9AB00822F86 /* AddAccountController.m */; };
+		E279370214E1D9AB00822F86 /* AddAccountView.xib in Resources */ = {isa = PBXBuildFile; fileRef = E279370014E1D9AB00822F86 /* AddAccountView.xib */; };
 		E2A942F814E17F680042AA40 /* AccountListController.m in Sources */ = {isa = PBXBuildFile; fileRef = E2A942F614E17F680042AA40 /* AccountListController.m */; };
 		E2A942F914E17F680042AA40 /* AccountListView.xib in Resources */ = {isa = PBXBuildFile; fileRef = E2A942F714E17F680042AA40 /* AccountListView.xib */; };
 		E2A9430014E182D60042AA40 /* MVAPI.m in Sources */ = {isa = PBXBuildFile; fileRef = E2A942FF14E182D60042AA40 /* MVAPI.m */; };
@@ -132,6 +134,9 @@
 		E20D4C2714DED346007A33CB /* NSObject+Coby.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+Coby.m"; sourceTree = "<group>"; };
 		E20D4C2814DED346007A33CB /* NSString+Coby.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+Coby.h"; sourceTree = "<group>"; };
 		E20D4C2914DED346007A33CB /* NSString+Coby.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+Coby.m"; sourceTree = "<group>"; };
+		E27936FE14E1D9AB00822F86 /* AddAccountController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddAccountController.h; sourceTree = "<group>"; };
+		E27936FF14E1D9AB00822F86 /* AddAccountController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddAccountController.m; sourceTree = "<group>"; };
+		E279370014E1D9AB00822F86 /* AddAccountView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AddAccountView.xib; sourceTree = "<group>"; };
 		E2A942F514E17F680042AA40 /* AccountListController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AccountListController.h; sourceTree = "<group>"; };
 		E2A942F614E17F680042AA40 /* AccountListController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AccountListController.m; sourceTree = "<group>"; };
 		E2A942F714E17F680042AA40 /* AccountListView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AccountListView.xib; sourceTree = "<group>"; };
@@ -343,6 +348,9 @@
 				E2A942F514E17F680042AA40 /* AccountListController.h */,
 				E2A942F614E17F680042AA40 /* AccountListController.m */,
 				E2A942F714E17F680042AA40 /* AccountListView.xib */,
+				E27936FE14E1D9AB00822F86 /* AddAccountController.h */,
+				E27936FF14E1D9AB00822F86 /* AddAccountController.m */,
+				E279370014E1D9AB00822F86 /* AddAccountView.xib */,
 			);
 			path = Shared;
 			sourceTree = "<group>";
@@ -453,6 +461,7 @@
 				E20D4C1814DEC559007A33CB /* SimUsagePhoneView.xib in Resources */,
 				E20D4C1D14DEC578007A33CB /* SimTopupsPhoneView.xib in Resources */,
 				E2A942F914E17F680042AA40 /* AccountListView.xib in Resources */,
+				E279370214E1D9AB00822F86 /* AddAccountView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -502,6 +511,7 @@
 				E2A9431514E18A5E0042AA40 /* Links.m in Sources */,
 				E2A9431614E18A5E0042AA40 /* Sim.m in Sources */,
 				E2A9431914E18BDA0042AA40 /* MVStorage.m in Sources */,
+				E279370114E1D9AB00822F86 /* AddAccountController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
