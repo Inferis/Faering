@@ -55,6 +55,7 @@
 		E2A9431414E18A5E0042AA40 /* Account.m in Sources */ = {isa = PBXBuildFile; fileRef = E2A9430C14E18A5E0042AA40 /* Account.m */; };
 		E2A9431514E18A5E0042AA40 /* Links.m in Sources */ = {isa = PBXBuildFile; fileRef = E2A9430E14E18A5E0042AA40 /* Links.m */; };
 		E2A9431614E18A5E0042AA40 /* Sim.m in Sources */ = {isa = PBXBuildFile; fileRef = E2A9431014E18A5E0042AA40 /* Sim.m */; };
+		E2A9431914E18BDA0042AA40 /* MVStorage.m in Sources */ = {isa = PBXBuildFile; fileRef = E2A9431814E18BDA0042AA40 /* MVStorage.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -149,6 +150,8 @@
 		E2A9430E14E18A5E0042AA40 /* Links.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Links.m; sourceTree = "<group>"; };
 		E2A9430F14E18A5E0042AA40 /* Sim.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Sim.h; sourceTree = "<group>"; };
 		E2A9431014E18A5E0042AA40 /* Sim.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Sim.m; sourceTree = "<group>"; };
+		E2A9431714E18BDA0042AA40 /* MVStorage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MVStorage.h; sourceTree = "<group>"; };
+		E2A9431814E18BDA0042AA40 /* MVStorage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MVStorage.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -375,6 +378,8 @@
 			isa = PBXGroup;
 			children = (
 				E2A9430514E18A5E0042AA40 /* _Account.h */,
+				E2A9431714E18BDA0042AA40 /* MVStorage.h */,
+				E2A9431814E18BDA0042AA40 /* MVStorage.m */,
 				E2A9430614E18A5E0042AA40 /* _Account.m */,
 				E2A9430714E18A5E0042AA40 /* _Links.h */,
 				E2A9430814E18A5E0042AA40 /* _Links.m */,
@@ -496,6 +501,7 @@
 				E2A9431414E18A5E0042AA40 /* Account.m in Sources */,
 				E2A9431514E18A5E0042AA40 /* Links.m in Sources */,
 				E2A9431614E18A5E0042AA40 /* Sim.m in Sources */,
+				E2A9431914E18BDA0042AA40 /* MVStorage.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
