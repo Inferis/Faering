@@ -7,6 +7,7 @@
 //
 
 #import "RootPhoneController.h"
+#import "AccountListController.h"
 #import "SimListController.h"
 #import "SimOverviewPhoneController.h"
 #import "SimUsagePhoneController.h"
@@ -16,7 +17,8 @@
 @implementation RootPhoneController
 
 - (id)init {
-    self.leftController = [[SimListController alloc] initWithNibName:@"SimListView" bundle:nil];
+    UINavigationController* leftController = [[UINavigationController alloc] initWithRootViewController:[[AccountListController alloc] initWithNibName:@"AccountListView" bundle:nil]];
+    leftController.navigationBar.tintColor = [UIColor blackColor];
     
     SimOverviewPhoneController* overviewController = [[SimOverviewPhoneController alloc] initWithNibName:@"SimOverviewPhoneView" bundle:nil];
     SimUsagePhoneController* usageController = [[SimUsagePhoneController alloc] initWithNibName:@"SimUsagePhoneView" bundle:nil];
@@ -26,9 +28,8 @@
     tabController.viewControllers = [[NSArray arrayWithObjects:overviewController, usageController, topupsController, nil] map:^id(id obj) {
         return [[UINavigationController alloc] initWithRootViewController:obj];
     }];
-    self.centerController = tabController;
     
-    self = [super initWithCenterViewController:self.centerController leftViewController:self.leftController];
+    self = [super initWithCenterViewController:tabController leftViewController:leftController];
     if (self) {
         // Custom initialization
     }

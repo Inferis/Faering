@@ -45,6 +45,10 @@
 		E20D4C2C14DED346007A33CB /* NSDictionary+Coby.m in Sources */ = {isa = PBXBuildFile; fileRef = E20D4C2514DED346007A33CB /* NSDictionary+Coby.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		E20D4C2D14DED346007A33CB /* NSObject+Coby.m in Sources */ = {isa = PBXBuildFile; fileRef = E20D4C2714DED346007A33CB /* NSObject+Coby.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		E20D4C2E14DED346007A33CB /* NSString+Coby.m in Sources */ = {isa = PBXBuildFile; fileRef = E20D4C2914DED346007A33CB /* NSString+Coby.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		E2A942F814E17F680042AA40 /* AccountListController.m in Sources */ = {isa = PBXBuildFile; fileRef = E2A942F614E17F680042AA40 /* AccountListController.m */; };
+		E2A942F914E17F680042AA40 /* AccountListView.xib in Resources */ = {isa = PBXBuildFile; fileRef = E2A942F714E17F680042AA40 /* AccountListView.xib */; };
+		E2A9430014E182D60042AA40 /* MVAPI.m in Sources */ = {isa = PBXBuildFile; fileRef = E2A942FF14E182D60042AA40 /* MVAPI.m */; };
+		E2A9430414E185570042AA40 /* Faering.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = E2A9430214E185570042AA40 /* Faering.xcdatamodeld */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -121,6 +125,12 @@
 		E20D4C2714DED346007A33CB /* NSObject+Coby.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+Coby.m"; sourceTree = "<group>"; };
 		E20D4C2814DED346007A33CB /* NSString+Coby.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+Coby.h"; sourceTree = "<group>"; };
 		E20D4C2914DED346007A33CB /* NSString+Coby.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+Coby.m"; sourceTree = "<group>"; };
+		E2A942F514E17F680042AA40 /* AccountListController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AccountListController.h; sourceTree = "<group>"; };
+		E2A942F614E17F680042AA40 /* AccountListController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AccountListController.m; sourceTree = "<group>"; };
+		E2A942F714E17F680042AA40 /* AccountListView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AccountListView.xib; sourceTree = "<group>"; };
+		E2A942FE14E182D60042AA40 /* MVAPI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MVAPI.h; sourceTree = "<group>"; };
+		E2A942FF14E182D60042AA40 /* MVAPI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MVAPI.m; sourceTree = "<group>"; };
+		E2A9430314E185570042AA40 /* Faering.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Faering.xcdatamodel; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -174,6 +184,7 @@
 				E20D4BFB14DEC2E3007A33CB /* UI */,
 				E20D4BB014DEAA58007A33CB /* AppDelegate.h */,
 				E20D4BB114DEAA58007A33CB /* AppDelegate.m */,
+				E2A9430114E1854D0042AA40 /* Models */,
 			);
 			path = Faering;
 			sourceTree = "<group>";
@@ -193,6 +204,7 @@
 		E20D4BB814DEAAA0007A33CB /* Vendor */ = {
 			isa = PBXGroup;
 			children = (
+				E2A942FD14E182920042AA40 /* MVAPI */,
 				E20D4C1E14DED345007A33CB /* coby */,
 				E20D4BB914DEAAA0007A33CB /* MagicalRecord */,
 				E20D4BDA14DEAAA0007A33CB /* ViewDeck */,
@@ -307,6 +319,9 @@
 				E20D4C0514DEC354007A33CB /* SimListController.h */,
 				E20D4C0614DEC354007A33CB /* SimListController.m */,
 				E20D4C0714DEC354007A33CB /* SimListView.xib */,
+				E2A942F514E17F680042AA40 /* AccountListController.h */,
+				E2A942F614E17F680042AA40 /* AccountListController.m */,
+				E2A942F714E17F680042AA40 /* AccountListView.xib */,
 			);
 			path = Shared;
 			sourceTree = "<group>";
@@ -327,6 +342,23 @@
 				E20D4C2914DED346007A33CB /* NSString+Coby.m */,
 			);
 			path = coby;
+			sourceTree = "<group>";
+		};
+		E2A942FD14E182920042AA40 /* MVAPI */ = {
+			isa = PBXGroup;
+			children = (
+				E2A942FE14E182D60042AA40 /* MVAPI.h */,
+				E2A942FF14E182D60042AA40 /* MVAPI.m */,
+			);
+			path = MVAPI;
+			sourceTree = "<group>";
+		};
+		E2A9430114E1854D0042AA40 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				E2A9430214E185570042AA40 /* Faering.xcdatamodeld */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -385,6 +417,7 @@
 				E20D4C0E14DEC3BF007A33CB /* SimOverviewPhoneView.xib in Resources */,
 				E20D4C1814DEC559007A33CB /* SimUsagePhoneView.xib in Resources */,
 				E20D4C1D14DEC578007A33CB /* SimTopupsPhoneView.xib in Resources */,
+				E2A942F914E17F680042AA40 /* AccountListView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -424,6 +457,9 @@
 				E20D4C2C14DED346007A33CB /* NSDictionary+Coby.m in Sources */,
 				E20D4C2D14DED346007A33CB /* NSObject+Coby.m in Sources */,
 				E20D4C2E14DED346007A33CB /* NSString+Coby.m in Sources */,
+				E2A942F814E17F680042AA40 /* AccountListController.m in Sources */,
+				E2A9430014E182D60042AA40 /* MVAPI.m in Sources */,
+				E2A9430414E185570042AA40 /* Faering.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -529,8 +565,22 @@
 				E20D4BB714DEAA58007A33CB /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		E2A9430214E185570042AA40 /* Faering.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				E2A9430314E185570042AA40 /* Faering.xcdatamodel */,
+			);
+			currentVersion = E2A9430314E185570042AA40 /* Faering.xcdatamodel */;
+			path = Faering.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = E20D4B9414DEAA58007A33CB /* Project object */;
 }

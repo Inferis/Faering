@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model name="" userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="872" systemVersion="11C74" minimumToolsVersion="Automatic" macOSVersion="Automatic" iOSVersion="Automatic">
+    <entity name="Account" representedClassName="Account" syncable="YES">
+        <attribute name="accessToken" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="earned_points" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="topups_used" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="unused_points" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="used_points" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="waiting_points" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <relationship name="links" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="Links" inverseName="account" inverseEntity="Links" syncable="YES"/>
+        <relationship name="sims" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="Sim" inverseName="account" inverseEntity="Sim" syncable="YES"/>
+    </entity>
+    <entity name="Links" representedClassName="Links" syncable="YES">
+        <attribute name="alias" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="link" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="account" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="Account" inverseName="links" inverseEntity="Account" syncable="YES"/>
+    </entity>
+    <entity name="Sim" representedClassName="Sim" syncable="YES">
+        <attribute name="alias" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="cardnumber" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="imsi" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="msisdn" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="pin1" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="pin2" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="puk1" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="puk2" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="account" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="Account" inverseName="sims" inverseEntity="Account" syncable="YES"/>
+    </entity>
+    <elements>
+        <element name="Account" positionX="160" positionY="192" width="128" height="180"/>
+        <element name="Sim" positionX="160" positionY="192" width="128" height="180"/>
+        <element name="Links" positionX="160" positionY="192" width="128" height="90"/>
+    </elements>
+</model>

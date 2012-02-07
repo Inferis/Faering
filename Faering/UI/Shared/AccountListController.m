@@ -1,31 +1,27 @@
 //
-//  SimListController.m
+//  AccountListController.m
 //  Faering
 //
-//  Created by Tom Adriaenssen on 05/02/12.
+//  Created by Tom Adriaenssen on 07/02/12.
 //  Copyright (c) 2012 Adriaenssen BVBA. All rights reserved.
 //
 
-#import "SimListController.h"
+#import "AccountListController.h"
 
-@implementation SimListController
+@implementation AccountListController
 
 #pragma mark - View lifecycle
-
-@synthesize tableView = _tableView;
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-
-    self.title = @"InferisPad";
+    
+    self.title = @"Accounts";
 }
 
 - (void)viewDidUnload
 {
     [super viewDidUnload];
-    // Release any retained subviews of the main view.
-    // e.g. self.myOutlet = nil;
 }
 
 - (void)viewWillAppear:(BOOL)animated
@@ -58,11 +54,15 @@
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
+#warning Potentially incomplete method implementation.
+    // Return the number of sections.
     return 0;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
+#warning Incomplete method implementation.
+    // Return the number of rows in the section.
     return 0;
 }
 
