@@ -7,8 +7,19 @@
 //
 
 #import "AccountListController.h"
+#import "Account.h"
+#import "Sim.h"
+#import "IIViewDeckController.h"
+#import "AddAccountController.h"
+
+@interface AccountListController () {
+}
+@end
 
 @implementation AccountListController
+
+@synthesize tableView = _tableView;
+@synthesize addButton = _addButton;
 
 #pragma mark - View lifecycle
 
@@ -27,6 +38,16 @@
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
+    
+    CGFloat width = self.addButton.superview.frame.size.width - self.addButton.frame.origin.x * 2;
+    if (self.viewDeckController) {
+        width -= self.viewDeckController.leftLedge;
+    }
+    self.addButton.frame = (CGRect) { self.addButton.frame.origin, width, self.addButton.frame.size.height }; 
+    
+    if ([[[MVStorage sharedStorage] accounts] count] == 0) {
+//        self presentViewController:<#(UIViewController *)#> animated:<#(BOOL)#> completion:<#^(void)completion#>
+    }
 }
 
 - (void)viewDidAppear:(BOOL)animated
@@ -54,16 +75,12 @@
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-#warning Potentially incomplete method implementation.
-    // Return the number of sections.
-    return 0;
+    return 1;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-#warning Incomplete method implementation.
-    // Return the number of rows in the section.
-    return 0;
+    return [[[MVStorage sharedStorage] accounts] count];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -130,6 +147,22 @@
      // Pass the selected object to the new view controller.
      [self.navigationController pushViewController:detailViewController animated:YES];
      */
+}
+
+#pragma mark - Actions 
+
+- (IBAction)pressedAdd:(id)sender {
+    AddAccountController* controller = [[AddAccountController alloc] initWithNibName:@"AddAccountView" bundle:nil];
+    [self presentViewController:controller animated:YES completion:^{
+        [self.viewDeckController openLeftView];
+        [self.tableView reloadSections:[NSIndexSet indexSetWithIndex:0] withRowAnimation:UITableViewRowAnimationFade];
+    }];
+}
+
+- (IBAction)pressedSettings:(id)sender {
+//    [self presentViewController:nil animated:YES completion:^{
+//        code
+//    }];
 }
 
 @end

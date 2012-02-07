@@ -11,5 +11,9 @@
 @interface AccountListController : UIViewController <UITableViewDelegate, UITableViewDataSource>
 
 @property (atomic, retain) IBOutlet UITableView* tableView;
+@property (atomic, retain) IBOutlet UIButton* addButton;
+
+- (IBAction)pressedAdd:(id)sender;
+- (IBAction)pressedSettings:(id)sender;
 
 @end
