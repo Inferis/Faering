@@ -49,6 +49,12 @@
 		E2A942F914E17F680042AA40 /* AccountListView.xib in Resources */ = {isa = PBXBuildFile; fileRef = E2A942F714E17F680042AA40 /* AccountListView.xib */; };
 		E2A9430014E182D60042AA40 /* MVAPI.m in Sources */ = {isa = PBXBuildFile; fileRef = E2A942FF14E182D60042AA40 /* MVAPI.m */; };
 		E2A9430414E185570042AA40 /* Faering.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = E2A9430214E185570042AA40 /* Faering.xcdatamodeld */; };
+		E2A9431114E18A5E0042AA40 /* _Account.m in Sources */ = {isa = PBXBuildFile; fileRef = E2A9430614E18A5E0042AA40 /* _Account.m */; };
+		E2A9431214E18A5E0042AA40 /* _Links.m in Sources */ = {isa = PBXBuildFile; fileRef = E2A9430814E18A5E0042AA40 /* _Links.m */; };
+		E2A9431314E18A5E0042AA40 /* _Sim.m in Sources */ = {isa = PBXBuildFile; fileRef = E2A9430A14E18A5E0042AA40 /* _Sim.m */; };
+		E2A9431414E18A5E0042AA40 /* Account.m in Sources */ = {isa = PBXBuildFile; fileRef = E2A9430C14E18A5E0042AA40 /* Account.m */; };
+		E2A9431514E18A5E0042AA40 /* Links.m in Sources */ = {isa = PBXBuildFile; fileRef = E2A9430E14E18A5E0042AA40 /* Links.m */; };
+		E2A9431614E18A5E0042AA40 /* Sim.m in Sources */ = {isa = PBXBuildFile; fileRef = E2A9431014E18A5E0042AA40 /* Sim.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -131,6 +137,18 @@
 		E2A942FE14E182D60042AA40 /* MVAPI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MVAPI.h; sourceTree = "<group>"; };
 		E2A942FF14E182D60042AA40 /* MVAPI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MVAPI.m; sourceTree = "<group>"; };
 		E2A9430314E185570042AA40 /* Faering.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Faering.xcdatamodel; sourceTree = "<group>"; };
+		E2A9430514E18A5E0042AA40 /* _Account.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = _Account.h; sourceTree = "<group>"; };
+		E2A9430614E18A5E0042AA40 /* _Account.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = _Account.m; sourceTree = "<group>"; };
+		E2A9430714E18A5E0042AA40 /* _Links.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = _Links.h; sourceTree = "<group>"; };
+		E2A9430814E18A5E0042AA40 /* _Links.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = _Links.m; sourceTree = "<group>"; };
+		E2A9430914E18A5E0042AA40 /* _Sim.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = _Sim.h; sourceTree = "<group>"; };
+		E2A9430A14E18A5E0042AA40 /* _Sim.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = _Sim.m; sourceTree = "<group>"; };
+		E2A9430B14E18A5E0042AA40 /* Account.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Account.h; sourceTree = "<group>"; };
+		E2A9430C14E18A5E0042AA40 /* Account.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Account.m; sourceTree = "<group>"; };
+		E2A9430D14E18A5E0042AA40 /* Links.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Links.h; sourceTree = "<group>"; };
+		E2A9430E14E18A5E0042AA40 /* Links.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Links.m; sourceTree = "<group>"; };
+		E2A9430F14E18A5E0042AA40 /* Sim.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Sim.h; sourceTree = "<group>"; };
+		E2A9431014E18A5E0042AA40 /* Sim.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Sim.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -356,6 +374,18 @@
 		E2A9430114E1854D0042AA40 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				E2A9430514E18A5E0042AA40 /* _Account.h */,
+				E2A9430614E18A5E0042AA40 /* _Account.m */,
+				E2A9430714E18A5E0042AA40 /* _Links.h */,
+				E2A9430814E18A5E0042AA40 /* _Links.m */,
+				E2A9430914E18A5E0042AA40 /* _Sim.h */,
+				E2A9430A14E18A5E0042AA40 /* _Sim.m */,
+				E2A9430B14E18A5E0042AA40 /* Account.h */,
+				E2A9430C14E18A5E0042AA40 /* Account.m */,
+				E2A9430D14E18A5E0042AA40 /* Links.h */,
+				E2A9430E14E18A5E0042AA40 /* Links.m */,
+				E2A9430F14E18A5E0042AA40 /* Sim.h */,
+				E2A9431014E18A5E0042AA40 /* Sim.m */,
 				E2A9430214E185570042AA40 /* Faering.xcdatamodeld */,
 			);
 			path = Models;
@@ -460,6 +490,12 @@
 				E2A942F814E17F680042AA40 /* AccountListController.m in Sources */,
 				E2A9430014E182D60042AA40 /* MVAPI.m in Sources */,
 				E2A9430414E185570042AA40 /* Faering.xcdatamodeld in Sources */,
+				E2A9431114E18A5E0042AA40 /* _Account.m in Sources */,
+				E2A9431214E18A5E0042AA40 /* _Links.m in Sources */,
+				E2A9431314E18A5E0042AA40 /* _Sim.m in Sources */,
+				E2A9431414E18A5E0042AA40 /* Account.m in Sources */,
+				E2A9431514E18A5E0042AA40 /* Links.m in Sources */,
+				E2A9431614E18A5E0042AA40 /* Sim.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
