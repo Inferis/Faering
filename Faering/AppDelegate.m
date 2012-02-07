@@ -25,6 +25,8 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
+    [MagicalRecordHelpers setupCoreDataStackWithAutoMigratingSqliteStoreNamed:@"Faering"];
+    
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] applicationFrame]];
 
     if (IsIPad()) {
