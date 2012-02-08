@@ -47,6 +47,8 @@
 		E20D4C2E14DED346007A33CB /* NSString+Coby.m in Sources */ = {isa = PBXBuildFile; fileRef = E20D4C2914DED346007A33CB /* NSString+Coby.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		E279370114E1D9AB00822F86 /* AddAccountController.m in Sources */ = {isa = PBXBuildFile; fileRef = E27936FF14E1D9AB00822F86 /* AddAccountController.m */; };
 		E279370214E1D9AB00822F86 /* AddAccountView.xib in Resources */ = {isa = PBXBuildFile; fileRef = E279370014E1D9AB00822F86 /* AddAccountView.xib */; };
+		E279373714E2CAD300822F86 /* left-bg.png in Resources */ = {isa = PBXBuildFile; fileRef = E279373514E2CAD300822F86 /* left-bg.png */; };
+		E279373814E2CAD300822F86 /* left-bg@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E279373614E2CAD300822F86 /* left-bg@2x.png */; };
 		E2A942F814E17F680042AA40 /* AccountListController.m in Sources */ = {isa = PBXBuildFile; fileRef = E2A942F614E17F680042AA40 /* AccountListController.m */; };
 		E2A942F914E17F680042AA40 /* AccountListView.xib in Resources */ = {isa = PBXBuildFile; fileRef = E2A942F714E17F680042AA40 /* AccountListView.xib */; };
 		E2A9430014E182D60042AA40 /* MVAPI.m in Sources */ = {isa = PBXBuildFile; fileRef = E2A942FF14E182D60042AA40 /* MVAPI.m */; };
@@ -137,6 +139,8 @@
 		E27936FE14E1D9AB00822F86 /* AddAccountController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddAccountController.h; sourceTree = "<group>"; };
 		E27936FF14E1D9AB00822F86 /* AddAccountController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddAccountController.m; sourceTree = "<group>"; };
 		E279370014E1D9AB00822F86 /* AddAccountView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AddAccountView.xib; sourceTree = "<group>"; };
+		E279373514E2CAD300822F86 /* left-bg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "left-bg.png"; sourceTree = "<group>"; };
+		E279373614E2CAD300822F86 /* left-bg@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "left-bg@2x.png"; sourceTree = "<group>"; };
 		E2A942F514E17F680042AA40 /* AccountListController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AccountListController.h; sourceTree = "<group>"; };
 		E2A942F614E17F680042AA40 /* AccountListController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AccountListController.m; sourceTree = "<group>"; };
 		E2A942F714E17F680042AA40 /* AccountListView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AccountListView.xib; sourceTree = "<group>"; };
@@ -206,6 +210,7 @@
 			isa = PBXGroup;
 			children = (
 				E20D4BA814DEAA58007A33CB /* Supporting Files */,
+				E279373414E2CAD300822F86 /* assets */,
 				E20D4BB814DEAAA0007A33CB /* Vendor */,
 				E20D4BFB14DEC2E3007A33CB /* UI */,
 				E20D4BB014DEAA58007A33CB /* AppDelegate.h */,
@@ -373,6 +378,15 @@
 			path = coby;
 			sourceTree = "<group>";
 		};
+		E279373414E2CAD300822F86 /* assets */ = {
+			isa = PBXGroup;
+			children = (
+				E279373514E2CAD300822F86 /* left-bg.png */,
+				E279373614E2CAD300822F86 /* left-bg@2x.png */,
+			);
+			path = assets;
+			sourceTree = "<group>";
+		};
 		E2A942FD14E182920042AA40 /* MVAPI */ = {
 			isa = PBXGroup;
 			children = (
@@ -462,6 +476,8 @@
 				E20D4C1D14DEC578007A33CB /* SimTopupsPhoneView.xib in Resources */,
 				E2A942F914E17F680042AA40 /* AccountListView.xib in Resources */,
 				E279370214E1D9AB00822F86 /* AddAccountView.xib in Resources */,
+				E279373714E2CAD300822F86 /* left-bg.png in Resources */,
+				E279373814E2CAD300822F86 /* left-bg@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
