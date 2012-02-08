@@ -49,6 +49,10 @@
 		E279370214E1D9AB00822F86 /* AddAccountView.xib in Resources */ = {isa = PBXBuildFile; fileRef = E279370014E1D9AB00822F86 /* AddAccountView.xib */; };
 		E279373714E2CAD300822F86 /* left-bg.png in Resources */ = {isa = PBXBuildFile; fileRef = E279373514E2CAD300822F86 /* left-bg.png */; };
 		E279373814E2CAD300822F86 /* left-bg@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E279373614E2CAD300822F86 /* left-bg@2x.png */; };
+		E279374C14E325DC00822F86 /* navbar-dark.png in Resources */ = {isa = PBXBuildFile; fileRef = E279374A14E325DC00822F86 /* navbar-dark.png */; };
+		E279374D14E325DC00822F86 /* navbar-white.png in Resources */ = {isa = PBXBuildFile; fileRef = E279374B14E325DC00822F86 /* navbar-white.png */; };
+		E279375014E3271500822F86 /* navbar-dark@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E279374E14E3271500822F86 /* navbar-dark@2x.png */; };
+		E279375114E3271500822F86 /* navbar-white@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E279374F14E3271500822F86 /* navbar-white@2x.png */; };
 		E2A942F814E17F680042AA40 /* AccountListController.m in Sources */ = {isa = PBXBuildFile; fileRef = E2A942F614E17F680042AA40 /* AccountListController.m */; };
 		E2A942F914E17F680042AA40 /* AccountListView.xib in Resources */ = {isa = PBXBuildFile; fileRef = E2A942F714E17F680042AA40 /* AccountListView.xib */; };
 		E2A9430014E182D60042AA40 /* MVAPI.m in Sources */ = {isa = PBXBuildFile; fileRef = E2A942FF14E182D60042AA40 /* MVAPI.m */; };
@@ -141,6 +145,10 @@
 		E279370014E1D9AB00822F86 /* AddAccountView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AddAccountView.xib; sourceTree = "<group>"; };
 		E279373514E2CAD300822F86 /* left-bg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "left-bg.png"; sourceTree = "<group>"; };
 		E279373614E2CAD300822F86 /* left-bg@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "left-bg@2x.png"; sourceTree = "<group>"; };
+		E279374A14E325DC00822F86 /* navbar-dark.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "navbar-dark.png"; sourceTree = "<group>"; };
+		E279374B14E325DC00822F86 /* navbar-white.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "navbar-white.png"; sourceTree = "<group>"; };
+		E279374E14E3271500822F86 /* navbar-dark@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "navbar-dark@2x.png"; sourceTree = "<group>"; };
+		E279374F14E3271500822F86 /* navbar-white@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "navbar-white@2x.png"; sourceTree = "<group>"; };
 		E2A942F514E17F680042AA40 /* AccountListController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AccountListController.h; sourceTree = "<group>"; };
 		E2A942F614E17F680042AA40 /* AccountListController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AccountListController.m; sourceTree = "<group>"; };
 		E2A942F714E17F680042AA40 /* AccountListView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AccountListView.xib; sourceTree = "<group>"; };
@@ -381,6 +389,10 @@
 		E279373414E2CAD300822F86 /* assets */ = {
 			isa = PBXGroup;
 			children = (
+				E279374E14E3271500822F86 /* navbar-dark@2x.png */,
+				E279374F14E3271500822F86 /* navbar-white@2x.png */,
+				E279374A14E325DC00822F86 /* navbar-dark.png */,
+				E279374B14E325DC00822F86 /* navbar-white.png */,
 				E279373514E2CAD300822F86 /* left-bg.png */,
 				E279373614E2CAD300822F86 /* left-bg@2x.png */,
 			);
@@ -478,6 +490,10 @@
 				E279370214E1D9AB00822F86 /* AddAccountView.xib in Resources */,
 				E279373714E2CAD300822F86 /* left-bg.png in Resources */,
 				E279373814E2CAD300822F86 /* left-bg@2x.png in Resources */,
+				E279374C14E325DC00822F86 /* navbar-dark.png in Resources */,
+				E279374D14E325DC00822F86 /* navbar-white.png in Resources */,
+				E279375014E3271500822F86 /* navbar-dark@2x.png in Resources */,
+				E279375114E3271500822F86 /* navbar-white@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
