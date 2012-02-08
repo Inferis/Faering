@@ -45,6 +45,7 @@
 #define II_AUTORELEASE(xx)      [xx autorelease]
 #endif
 
+#define II_FLOAT_EQUAL(x, y) (((x) - (y)) == 0.0f)
 
 #import "IIViewDeckController.h"
 #import <objc/runtime.h>
@@ -57,11 +58,7 @@
 #define OPEN_SLIDE_DURATION(animated) SLIDE_DURATION(animated,DURATION_FAST)
 #define CLOSE_SLIDE_DURATION(animated) SLIDE_DURATION(animated,DURATION_SLOW)
 
-@interface IIViewDeckController () <UIGestureRecognizerDelegate> {
-    CGFloat _panOrigin;
-    BOOL _viewAppeared;
-    CGFloat _preRotationWidth, _leftWidth, _rightWidth;
-}
+@interface IIViewDeckController () <UIGestureRecognizerDelegate> 
 
 @property (nonatomic, retain) UIView* referenceView;
 @property (nonatomic, readonly) CGRect referenceBounds;
@@ -92,6 +89,7 @@
 
 - (void)centerViewVisible;
 - (void)centerViewHidden;
+- (void)centerTapped;
 
 - (void)addPanners;
 - (void)removePanners;
@@ -109,6 +107,7 @@
 
 // internal setter for the viewDeckController property on UIViewController
 - (void)setViewDeckController:(IIViewDeckController*)viewDeckController;
+- (UINavigationController*)vdc_navigationController;
 
 @end
 
@@ -246,11 +245,11 @@
 }
 
 - (CGRect)slidingRectForOffset:(CGFloat)offset {
-    return (CGRect) { self.resizesCenterView && offset < 0 ? 0 : offset, 0, [self slidingSizeForOffset:offset] };
+    return (CGRect) { {self.resizesCenterView && offset < 0 ? 0 : offset, 0}, [self slidingSizeForOffset:offset] };
 }
 
 - (CGSize)slidingSizeForOffset:(CGFloat)offset {
-    if (!self.resizesCenterView || offset == 0) return self.referenceBounds.size;
+    if (!self.resizesCenterView || offset == 0.0f) return self.referenceBounds.size;
     
     if (offset < 0) 
         return (CGSize) { self.referenceBounds.size.width + offset, self.referenceBounds.size.height };
@@ -262,7 +261,7 @@
 
 - (void)setLeftLedge:(CGFloat)leftLedge {
     leftLedge = MAX(leftLedge, MIN(self.referenceBounds.size.width, leftLedge));
-    if (_viewAppeared && self.slidingControllerView.frame.origin.x == self.referenceBounds.size.width - _leftLedge) {
+    if (_viewAppeared && II_FLOAT_EQUAL(self.slidingControllerView.frame.origin.x, self.referenceBounds.size.width - _leftLedge)) {
         if (leftLedge < _leftLedge) {
             [UIView animateWithDuration:CLOSE_SLIDE_DURATION(YES) animations:^{
                 self.slidingControllerView.frame = [self slidingRectForOffset:self.referenceBounds.size.width - leftLedge];
@@ -279,7 +278,7 @@
 
 - (void)setRightLedge:(CGFloat)rightLedge {
     rightLedge = MAX(rightLedge, MIN(self.referenceBounds.size.width, rightLedge));
-    if (_viewAppeared && self.slidingControllerView.frame.origin.x == _rightLedge - self.referenceBounds.size.width) {
+    if (_viewAppeared && II_FLOAT_EQUAL(self.slidingControllerView.frame.origin.x, _rightLedge - self.referenceBounds.size.width)) {
         if (rightLedge < _rightLedge) {
             [UIView animateWithDuration:CLOSE_SLIDE_DURATION(YES) animations:^{
                 self.slidingControllerView.frame = [self slidingRectForOffset:rightLedge - self.referenceBounds.size.width];
@@ -335,37 +334,33 @@
     [self.view addObserver:self forKeyPath:@"bounds" options:NSKeyValueChangeSetting context:nil];
 
     BOOL appeared = _viewAppeared;
-    if (!_viewAppeared) {
-        [self setSlidingAndReferenceViews];
-        
-        [self.centerController.view removeFromSuperview];
-        [self.centerView addSubview:self.centerController.view];
-        [self.leftController.view removeFromSuperview];
-        [self.referenceView insertSubview:self.leftController.view belowSubview:self.slidingControllerView];
-        [self.rightController.view removeFromSuperview];
-        [self.referenceView insertSubview:self.rightController.view belowSubview:self.slidingControllerView];
-        
-        self.centerView.frame = self.referenceBounds;
-        self.centerController.view.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
-        self.centerController.view.frame = self.referenceBounds;
-        self.slidingControllerView.frame = self.referenceBounds;
-        self.slidingControllerView.hidden = NO;
-        self.leftController.view.frame = self.referenceBounds;
-        self.leftController.view.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
-        self.leftController.view.hidden = YES;
-        self.rightController.view.frame = self.referenceBounds;
-        self.rightController.view.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
-        self.rightController.view.hidden = YES;
-        
-        [self applyShadowToSlidingView];
-        _viewAppeared = YES;
-    }
-    else 
-        [self arrangeViewsAfterRotation];
+    [self setSlidingAndReferenceViews];
+    
+    [self.centerController.view removeFromSuperview];
+    [self.centerView addSubview:self.centerController.view];
+    [self.leftController.view removeFromSuperview];
+    [self.referenceView insertSubview:self.leftController.view belowSubview:self.slidingControllerView];
+    [self.rightController.view removeFromSuperview];
+    [self.referenceView insertSubview:self.rightController.view belowSubview:self.slidingControllerView];
+    
+    self.centerView.frame = self.referenceBounds;
+    self.centerController.view.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
+    self.centerController.view.frame = self.referenceBounds;
+    self.slidingControllerView.frame = self.referenceBounds;
+    self.slidingControllerView.hidden = NO;
+    self.leftController.view.frame = self.referenceBounds;
+    self.leftController.view.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
+    self.leftController.view.hidden = YES;
+    self.rightController.view.frame = self.referenceBounds;
+    self.rightController.view.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
+    self.rightController.view.hidden = YES;
+    
+    [self applyShadowToSlidingView];
+    _viewAppeared = YES;
     
     [self addPanners];
 
-    if (self.slidingControllerView.frame.origin.x == 0) 
+    if (self.slidingControllerView.frame.origin.x == 0.0f) 
         [self centerViewVisible];
     else
         [self centerViewHidden];
@@ -392,10 +387,10 @@
         [controller viewWillDisappear:animated];
     }];
 
-    [self removePanners];
-    
-    [self closeLeftView];
-    [self closeRightView];
+//    [self removePanners];
+//    
+//    [self closeLeftView];
+//    [self closeRightView];
 }
 
 - (void)viewDidDisappear:(BOOL)animated {
@@ -470,8 +465,8 @@
     else {
         self.leftLedge = self.leftLedge + self.referenceBounds.size.width - _preRotationWidth; 
         self.rightLedge = self.rightLedge + self.referenceBounds.size.width - _preRotationWidth; 
-        self.leftController.view.frame = (CGRect) { self.leftController.view.frame.origin, _leftWidth, self.leftController.view.frame.size.height };
-        self.rightController.view.frame = (CGRect) { self.rightController.view.frame.origin, _rightWidth, self.rightController.view.frame.size.height };
+        self.leftController.view.frame = (CGRect) { self.leftController.view.frame.origin, {_leftWidth, self.leftController.view.frame.size.height} };
+        self.rightController.view.frame = (CGRect) { self.rightController.view.frame.origin, {_rightWidth, self.rightController.view.frame.size.height} };
     }
     self.slidingControllerView.frame = [self slidingRectForOffset:offset];
     self.centerController.view.frame = self.referenceBounds;
@@ -535,9 +530,8 @@
     [self openLeftViewAnimated:animated options:UIViewAnimationOptionCurveEaseInOut completion:completed];
 }
 
-
 - (void)openLeftViewAnimated:(BOOL)animated options:(UIViewAnimationOptions)options completion:(void (^)(IIViewDeckController *))completed {
-    if (!self.leftController || CGRectGetMinX(self.slidingControllerView.frame) == self.leftLedge) return;
+    if (!self.leftController || II_FLOAT_EQUAL(CGRectGetMinX(self.slidingControllerView.frame), self.leftLedge)) return;
     
     // check the delegate to allow opening
     if (![self checkDelegate:@selector(viewDeckControllerWillOpenLeftView:animated:) animated:animated]) return;
@@ -603,7 +597,7 @@
         [UIView animateWithDuration:CLOSE_SLIDE_DURATION(YES) delay:0 options:UIViewAnimationOptionCurveEaseOut | UIViewAnimationOptionLayoutSubviews animations:^{
             self.slidingControllerView.frame = [self slidingRectForOffset:0];
             [self centerViewVisible];
-        } completion:^(BOOL finished) {
+        } completion:^(BOOL finished2) {
             self.leftController.view.hidden = YES;
             if (completed) completed(self);
             [self performDelegate:@selector(viewDeckControllerDidCloseLeftView:animated:) animated:YES];
@@ -645,7 +639,7 @@
 }
 
 - (void)openRightViewAnimated:(BOOL)animated options:(UIViewAnimationOptions)options completion:(void (^)(IIViewDeckController *))completed {
-    if (!self.rightController || CGRectGetMaxX(self.slidingControllerView.frame) == self.rightLedge) return;
+    if (!self.rightController || II_FLOAT_EQUAL(CGRectGetMaxX(self.slidingControllerView.frame), self.rightLedge)) return;
 
     // check the delegate to allow opening
     if (![self checkDelegate:@selector(viewDeckControllerWillOpenRightView:animated:) animated:animated]) return;
@@ -709,7 +703,7 @@
         [UIView animateWithDuration:CLOSE_SLIDE_DURATION(YES) delay:0 options:UIViewAnimationOptionCurveEaseOut | UIViewAnimationOptionLayoutSubviews animations:^{
             self.slidingControllerView.frame = [self slidingRectForOffset:0];
             [self centerViewVisible];
-        } completion:^(BOOL finished) {
+        } completion:^(BOOL finished2) {
             self.rightController.view.hidden = YES;
             if (completed) completed(self);
             [self performDelegate:@selector(viewDeckControllerDidCloseRightView:animated:) animated:YES];
@@ -886,7 +880,7 @@
             if (self.centerTapper)
                 [self addPanner:self.centerTapper];
             // also add to navigationbar if present
-            if (self.navigationController && !self.navigationController.navigationBarHidden && self.navigationControllerBehavior == IIViewDeckNavigationControllerContained) 
+            if (self.navigationController && !self.navigationController.navigationBarHidden) 
                 [self addPanner:self.navigationController.navigationBar];
             break;
             
@@ -924,17 +918,17 @@
 - (BOOL)checkDelegate:(SEL)selector animated:(BOOL)animated {
     BOOL ok = YES;
     if (self.delegate && [self.delegate respondsToSelector:selector]) 
-        ok = ok & (BOOL)objc_msgSend(self.delegate, selector, self, animated);
+        ok = ok & (BOOL)(int)objc_msgSend(self.delegate, selector, self, animated);
 
     for (UIViewController* controller in self.controllers) {
         // check controller first
         if ([controller respondsToSelector:selector]) 
-            ok = ok & (BOOL)objc_msgSend(controller, selector, self, animated);
+            ok = ok & (BOOL)(int)objc_msgSend(controller, selector, self, animated);
         // if that fails, check if it's a navigation controller and use the top controller
         else if ([controller isKindOfClass:[UINavigationController class]]) {
             UIViewController* topController = ((UINavigationController*)controller).topViewController;
             if ([topController respondsToSelector:selector]) 
-                ok = ok & (BOOL)objc_msgSend(topController, selector, self, animated);
+                ok = ok & (BOOL)(int)objc_msgSend(topController, selector, self, animated);
         }
     }
 
@@ -966,8 +960,8 @@
 }
 
 - (void)setTitle:(NSString *)title {
-    [super setTitle:title];
-    self.centerController.title = title;
+    if (![title isEqualToString:self.title]) [super setTitle:title];
+    if (![title isEqualToString:self.centerController.title]) self.centerController.title = title;
 }
 
 - (NSString*)title {
@@ -1219,6 +1213,11 @@
     }
 }
 
+
+- (BOOL)hidesBottomBarWhenPushed {
+    return self.centerController.hidesBottomBarWhenPushed;
+}
+
 @end
 
 #pragma mark -
@@ -1227,12 +1226,17 @@
 
 @dynamic viewDeckController;
 
-static char* viewDeckControllerKey = "ViewDeckController";
+static const char* viewDeckControllerKey = "ViewDeckController";
+
+- (IIViewDeckController*)viewDeckController_core {
+    id result = objc_getAssociatedObject(self, viewDeckControllerKey);
+    return result;
+}
 
 - (IIViewDeckController*)viewDeckController {
-    id result = objc_getAssociatedObject(self, viewDeckControllerKey);
-    if (!result && self.navigationController) 
-        return [self.navigationController viewDeckController];
+    id result = [self viewDeckController_core];
+    if (!result && self.vdc_navigationController) 
+        return [self.vdc_navigationController viewDeckController];
 
     return result;
 }
@@ -1261,6 +1265,11 @@ static char* viewDeckControllerKey = "ViewDeckController";
     [controller vdc_dismissViewControllerAnimated:flag completion:completion]; // when we get here, the vdc_ method is actually the old, real method
 }
 
+- (UINavigationController*)vdc_navigationController {
+    UIViewController* controller = self.viewDeckController_core ? self.viewDeckController_core : self;
+    return [controller vdc_navigationController]; // when we get here, the vdc_ method is actually the old, real method
+}
+
 + (void)vdc_swizzle {
     SEL presentModal = @selector(presentModalViewController:animated:);
     SEL vdcPresentModal = @selector(vdc_presentModalViewController:animated:);
@@ -1270,13 +1279,17 @@ static char* viewDeckControllerKey = "ViewDeckController";
     SEL vdcPresentVC = @selector(vdc_presentViewController:animated:completion:);
     method_exchangeImplementations(class_getInstanceMethod(self, presentVC), class_getInstanceMethod(self, vdcPresentVC));
 
-    SEL dismisModal = @selector(dismissModalViewControllerAnimated:);
+    SEL dismissModal = @selector(dismissModalViewControllerAnimated:);
     SEL vdcDismissModal = @selector(vdc_dismissModalViewControllerAnimated:);
-    method_exchangeImplementations(class_getInstanceMethod(self, dismisModal), class_getInstanceMethod(self, vdcDismissModal));
+    method_exchangeImplementations(class_getInstanceMethod(self, dismissModal), class_getInstanceMethod(self, vdcDismissModal));
 
     SEL dismissVC = @selector(dismissViewControllerAnimated:completion:);
     SEL vdcDismissVC = @selector(vdc_dismissViewControllerAnimated:completion:);
     method_exchangeImplementations(class_getInstanceMethod(self, dismissVC), class_getInstanceMethod(self, vdcDismissVC));
+
+    SEL nc = @selector(navigationController);
+    SEL vdcnc = @selector(vdc_navigationController);
+    method_exchangeImplementations(class_getInstanceMethod(self, nc), class_getInstanceMethod(self, vdcnc));
 }
 
 + (void)load {
