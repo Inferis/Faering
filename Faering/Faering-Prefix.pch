@@ -15,5 +15,6 @@
     
     #define MR_SHORTHAND
     #import "CoreData+MagicalRecord.h"
+    #import "Coby.h"
     #import "MVStorage.h"
 #endif
