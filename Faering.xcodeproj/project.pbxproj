@@ -67,6 +67,10 @@
 		E2A9431514E18A5E0042AA40 /* Links.m in Sources */ = {isa = PBXBuildFile; fileRef = E2A9430E14E18A5E0042AA40 /* Links.m */; };
 		E2A9431614E18A5E0042AA40 /* Sim.m in Sources */ = {isa = PBXBuildFile; fileRef = E2A9431014E18A5E0042AA40 /* Sim.m */; };
 		E2A9431914E18BDA0042AA40 /* MVStorage.m in Sources */ = {isa = PBXBuildFile; fileRef = E2A9431814E18BDA0042AA40 /* MVStorage.m */; };
+		E2AA690B14E5BEC1007262B7 /* UIButton+Stretchable.m in Sources */ = {isa = PBXBuildFile; fileRef = E2AA690814E5BEC1007262B7 /* UIButton+Stretchable.m */; };
+		E2AA690C14E5BEC1007262B7 /* UIColor+Hex.m in Sources */ = {isa = PBXBuildFile; fileRef = E2AA690A14E5BEC1007262B7 /* UIColor+Hex.m */; };
+		E2AA691014E5C3A4007262B7 /* sims.png in Resources */ = {isa = PBXBuildFile; fileRef = E2AA690E14E5C3A4007262B7 /* sims.png */; };
+		E2AA691114E5C3A4007262B7 /* sims@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E2AA690F14E5C3A4007262B7 /* sims@2x.png */; };
 		E2B7EC0814E3532000695814 /* JSONKit.m in Sources */ = {isa = PBXBuildFile; fileRef = E2B7EC0714E3532000695814 /* JSONKit.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		E2B7EC0A14E3538B00695814 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E2B7EC0914E3538B00695814 /* CFNetwork.framework */; };
 		E2B7EC0C14E353BC00695814 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = E2B7EC0B14E353BC00695814 /* libz.dylib */; };
@@ -202,6 +206,12 @@
 		E2A9431014E18A5E0042AA40 /* Sim.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Sim.m; sourceTree = "<group>"; };
 		E2A9431714E18BDA0042AA40 /* MVStorage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MVStorage.h; sourceTree = "<group>"; };
 		E2A9431814E18BDA0042AA40 /* MVStorage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MVStorage.m; sourceTree = "<group>"; };
+		E2AA690714E5BEC1007262B7 /* UIButton+Stretchable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIButton+Stretchable.h"; sourceTree = "<group>"; };
+		E2AA690814E5BEC1007262B7 /* UIButton+Stretchable.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIButton+Stretchable.m"; sourceTree = "<group>"; };
+		E2AA690914E5BEC1007262B7 /* UIColor+Hex.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+Hex.h"; sourceTree = "<group>"; };
+		E2AA690A14E5BEC1007262B7 /* UIColor+Hex.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+Hex.m"; sourceTree = "<group>"; };
+		E2AA690E14E5C3A4007262B7 /* sims.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = sims.png; sourceTree = "<group>"; };
+		E2AA690F14E5C3A4007262B7 /* sims@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "sims@2x.png"; sourceTree = "<group>"; };
 		E2B7EC0614E3532000695814 /* JSONKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSONKit.h; sourceTree = "<group>"; };
 		E2B7EC0714E3532000695814 /* JSONKit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSONKit.m; sourceTree = "<group>"; };
 		E2B7EC0914E3538B00695814 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
@@ -312,6 +322,7 @@
 			isa = PBXGroup;
 			children = (
 				E20D4BA814DEAA58007A33CB /* Supporting Files */,
+				E2AA690614E5BEC1007262B7 /* Extensions */,
 				E279373414E2CAD300822F86 /* assets */,
 				E20D4BB814DEAAA0007A33CB /* Vendor */,
 				E20D4BFB14DEC2E3007A33CB /* UI */,
@@ -488,6 +499,8 @@
 		E279373414E2CAD300822F86 /* assets */ = {
 			isa = PBXGroup;
 			children = (
+				E2AA690E14E5C3A4007262B7 /* sims.png */,
+				E2AA690F14E5C3A4007262B7 /* sims@2x.png */,
 				E279374E14E3271500822F86 /* navbar-dark@2x.png */,
 				E279374F14E3271500822F86 /* navbar-white@2x.png */,
 				E279374A14E325DC00822F86 /* navbar-dark.png */,
@@ -536,6 +549,17 @@
 				E2A9430214E185570042AA40 /* Faering.xcdatamodeld */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		E2AA690614E5BEC1007262B7 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				E2AA690714E5BEC1007262B7 /* UIButton+Stretchable.h */,
+				E2AA690814E5BEC1007262B7 /* UIButton+Stretchable.m */,
+				E2AA690914E5BEC1007262B7 /* UIColor+Hex.h */,
+				E2AA690A14E5BEC1007262B7 /* UIColor+Hex.m */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 		E2B7EC0514E3532000695814 /* JSONKit */ = {
@@ -684,6 +708,8 @@
 				E279375114E3271500822F86 /* navbar-white@2x.png in Resources */,
 				E2ECDFEB14E4604A00CF91DB /* README.txt in Resources */,
 				E2ECDFEC14E4604A00CF91DB /* release_notes.txt in Resources */,
+				E2AA691014E5C3A4007262B7 /* sims.png in Resources */,
+				E2AA691114E5C3A4007262B7 /* sims@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -754,6 +780,8 @@
 				E2ECDFF614E463D700CF91DB /* TinBasicAuthenticator.m in Sources */,
 				E2ECDFFA14E46C4C00CF91DB /* TinOAuthAuthenticator.m in Sources */,
 				E2ECDFFD14E46DE500CF91DB /* Tin+BasicAuthentication.m in Sources */,
+				E2AA690B14E5BEC1007262B7 /* UIButton+Stretchable.m in Sources */,
+				E2AA690C14E5BEC1007262B7 /* UIColor+Hex.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

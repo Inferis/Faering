@@ -13,12 +13,13 @@
 #import "SimUsagePhoneController.h"
 #import "SimTopupsPhoneController.h"
 #import "Coby.h"
+#import "UIColor+Hex.h"
 
 @implementation RootPhoneController
 
 - (id)init {
     UINavigationController* leftController = [[UINavigationController alloc] initWithRootViewController:[[AccountListController alloc] initWithNibName:@"AccountListView" bundle:nil]];
-    leftController.navigationBar.tintColor = [UIColor blackColor];
+    [leftController.navigationBar setBackgroundImage:[UIImage imageNamed:@"navbar-dark.png"] forBarMetrics:UIBarMetricsDefault];
     
     SimOverviewPhoneController* overviewController = [[SimOverviewPhoneController alloc] initWithNibName:@"SimOverviewPhoneView" bundle:nil];
     SimUsagePhoneController* usageController = [[SimUsagePhoneController alloc] initWithNibName:@"SimUsagePhoneView" bundle:nil];
@@ -26,7 +27,10 @@
     
     UITabBarController* tabController = [[UITabBarController alloc] init];
     tabController.viewControllers = [[NSArray arrayWithObjects:overviewController, usageController, topupsController, nil] map:^id(id obj) {
-        return [[UINavigationController alloc] initWithRootViewController:obj];
+        UINavigationController* controller = [[UINavigationController alloc] initWithRootViewController:obj];
+        controller.navigationBar.tintColor = [UIColor colorWithHex:0xe1551e];
+        [controller.navigationBar setBackgroundImage:[UIImage imageNamed:@"navbar-white.png"] forBarMetrics:UIBarMetricsDefault];
+        return controller;
     }];
     
     self = [super initWithCenterViewController:tabController leftViewController:leftController];

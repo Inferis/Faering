@@ -12,7 +12,8 @@
 #import "IIViewDeckController.h"
 #import "AddAccountController.h"
 
-@interface AccountListController () {
+@interface AccountListController () <AddAccountDelegate> {
+    BOOL _first;
 }
 @end
 
@@ -28,6 +29,9 @@
     [super viewDidLoad];
     
     self.title = @"Accounts";
+    self.tableView.backgroundColor = [UIColor clearColor];
+    [self.tableView.backgroundView removeFromSuperview];
+    _first = YES;
 }
 
 - (void)viewDidUnload
@@ -39,14 +43,21 @@
 {
     [super viewWillAppear:animated];
     
-    CGFloat width = self.addButton.superview.frame.size.width - self.addButton.frame.origin.x * 2;
-    if (self.viewDeckController) {
-        width -= self.viewDeckController.leftLedge;
+    if (_first) {
+        _first = NO;
+
+        CGFloat width = self.addButton.superview.frame.size.width - self.addButton.frame.origin.x * 2;
+        if (self.viewDeckController) {
+            width -= self.viewDeckController.leftLedge;
+        }
+        self.addButton.frame = (CGRect) { self.addButton.frame.origin, width, self.addButton.frame.size.height }; 
+        
+        if ([[[MVStorage sharedStorage] accounts] count] == 0) {
+            [self pressedAdd:nil];
+            [self.viewDeckController openLeftViewAnimated:NO];
+        }
     }
-    self.addButton.frame = (CGRect) { self.addButton.frame.origin, width, self.addButton.frame.size.height }; 
-    
-    if ([[[MVStorage sharedStorage] accounts] count] == 0) {
-//        self presentViewController:<#(UIViewController *)#> animated:<#(BOOL)#> completion:<#^(void)completion#>
+    else {
     }
 }
 
@@ -153,16 +164,29 @@
 
 - (IBAction)pressedAdd:(id)sender {
     AddAccountController* controller = [[AddAccountController alloc] initWithNibName:@"AddAccountView" bundle:nil];
+    controller.delegate = self;
     [self presentViewController:controller animated:YES completion:^{
-        [self.viewDeckController openLeftView];
-        [self.tableView reloadSections:[NSIndexSet indexSetWithIndex:0] withRowAnimation:UITableViewRowAnimationFade];
     }];
 }
+
 
 - (IBAction)pressedSettings:(id)sender {
 //    [self presentViewController:nil animated:YES completion:^{
 //        code
 //    }];
+}
+
+#pragma mark - Add Account Delegate
+
+- (void)addAccountController:(AddAccountController *)controller didAddAccountWithName:(NSString *)name accessToken:(NSString *)token {
+    [self dismissViewControllerAnimated:YES completion:^{
+        [self.viewDeckController openLeftView];
+        [self.tableView reloadSections:[NSIndexSet indexSetWithIndex:0] withRowAnimation:UITableViewRowAnimationFade];
+    }];
+}
+
+- (void)addAccountControllerDidCancel:(AddAccountController *)controller {
+    [self dismissViewControllerAnimated:YES completion:nil];
 }
 
 @end
