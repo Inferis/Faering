@@ -53,8 +53,16 @@
         self.addButton.frame = (CGRect) { self.addButton.frame.origin, width, self.addButton.frame.size.height }; 
         
         if ([[[MVStorage sharedStorage] accounts] count] == 0) {
-            [self pressedAdd:nil];
-            [self.viewDeckController openLeftViewAnimated:NO];
+            Account* account = [Account createEntity];
+            account.name = @"InferisPad";
+            account.accessToken = @"m.0070028";
+            [[NSManagedObjectContext contextForCurrentThread] save];
+            [self.tableView reloadData];
+//            [self pressedAdd:nil];
+//            [self.viewDeckController openLeftViewAnimated:NO];
+        }
+        else {
+            
         }
     }
     else {
@@ -96,9 +104,10 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    static NSString *CellIdentifier = @"Cell";
+    AccountCell* cell = [AccountCell tableViewDequeueCell:tableView]
+    static NSString *CellIdentifier = @"AccountCell";
     
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+    AccountCell *cell = (AccountCell*)[tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     if (cell == nil) {
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
     }

@@ -33,6 +33,10 @@
 		NSSet *affectingKey = [NSSet setWithObject:@"earned_points"];
 		keyPaths = [keyPaths setByAddingObjectsFromSet:affectingKey];
 	}
+	if ([key isEqualToString:@"isActiveValue"]) {
+		NSSet *affectingKey = [NSSet setWithObject:@"isActive"];
+		keyPaths = [keyPaths setByAddingObjectsFromSet:affectingKey];
+	}
 	if ([key isEqualToString:@"topups_usedValue"]) {
 		NSSet *affectingKey = [NSSet setWithObject:@"topups_used"];
 		keyPaths = [keyPaths setByAddingObjectsFromSet:affectingKey];
@@ -83,6 +87,32 @@
 
 - (void)setPrimitiveEarned_pointsValue:(int)value_ {
 	[self setPrimitiveEarned_points:[NSNumber numberWithInt:value_]];
+}
+
+
+
+
+
+@dynamic isActive;
+
+
+
+- (BOOL)isActiveValue {
+	NSNumber *result = [self isActive];
+	return [result boolValue];
+}
+
+- (void)setIsActiveValue:(BOOL)value_ {
+	[self setIsActive:[NSNumber numberWithBool:value_]];
+}
+
+- (BOOL)primitiveIsActiveValue {
+	NSNumber *result = [self primitiveIsActive];
+	return [result boolValue];
+}
+
+- (void)setPrimitiveIsActiveValue:(BOOL)value_ {
+	[self setPrimitiveIsActive:[NSNumber numberWithBool:value_]];
 }
 
 

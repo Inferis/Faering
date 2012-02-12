@@ -19,7 +19,7 @@
 
 - (id)init {
     UINavigationController* leftController = [[UINavigationController alloc] initWithRootViewController:[[AccountListController alloc] initWithNibName:@"AccountListView" bundle:nil]];
-    [leftController.navigationBar setBackgroundImage:[UIImage imageNamed:@"navbar-dark.png"] forBarMetrics:UIBarMetricsDefault];
+    leftController.navigationBarHidden = YES;
     
     SimOverviewPhoneController* overviewController = [[SimOverviewPhoneController alloc] initWithNibName:@"SimOverviewPhoneView" bundle:nil];
     SimUsagePhoneController* usageController = [[SimUsagePhoneController alloc] initWithNibName:@"SimUsagePhoneView" bundle:nil];
@@ -28,7 +28,8 @@
     UITabBarController* tabController = [[UITabBarController alloc] init];
     tabController.viewControllers = [[NSArray arrayWithObjects:overviewController, usageController, topupsController, nil] map:^id(id obj) {
         UINavigationController* controller = [[UINavigationController alloc] initWithRootViewController:obj];
-        controller.navigationBar.tintColor = [UIColor colorWithHex:0xe1551e];
+//        controller.navigationBar.tintColor = [UIColor colorWithHex:0xe1551e];
+//        controller.navigationBar.titleTextAttributes = [NSDictionary dictionaryWithObjectsAndKeys:[UIColor blackColor], UITextAttributeTextColor, [UIColor whiteColor], UITextAttributeTextShadowColor, [NSValue valueWithCGSize:(CGSize) { 0, 1 }], UITextAttributeTextShadowOffset, nil];
         [controller.navigationBar setBackgroundImage:[UIImage imageNamed:@"navbar-white.png"] forBarMetrics:UIBarMetricsDefault];
         return controller;
     }];

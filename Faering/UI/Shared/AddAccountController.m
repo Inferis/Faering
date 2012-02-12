@@ -51,7 +51,7 @@
     tin.baseURI = @"https://mobilevikings.com/api/2.0/";
     tin.debugOutput = YES;
 
-    [[tin signedWithClientKey:@"kuGVZHgQ3WLpQCf5fR" clientSecret:@"ZnTCzrn6JtnQyX9f84jyYNBPCK9Fyf7v"] get:@"oauth/request_token/" query:[NSDictionary dictionaryWithObject:@"oob" forKey:@"oauth_callback"] success:^(TinResponse *response) {
+    [[tin signedWithClientKey:@"kuGVZHgQ3WLpQCf5fR" clientSecret:@"ZnTCzrn6JtnQyX9f84jyYNBPCK9Fyf7v"] get:@"oauth/request_token/" query:[NSDictionary dictionaryWithObject:@"http://oauth/callback" forKey:@"oauth_callback"] success:^(TinResponse *response) {
         response.parseMethod = TinFormURLParseMethod;
         NSDictionary* keys = response.parsedResponse;
         if (response.error) {
@@ -119,5 +119,9 @@
         [MBProgressHUD hideHUDForView:webView animated:YES];
 }
 
+-(BOOL)webView:(UIWebView *)webView shouldStartLoadWithRequest:(NSURLRequest *)request navigationType:(UIWebViewNavigationType)navigationType {
+    NSLog(@"req = %@", request.URL);
+    return YES;
+}
 
 @end

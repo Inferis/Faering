@@ -15,6 +15,7 @@
 
 
 
+
 @interface AccountID : NSManagedObjectID {}
 @end
 
@@ -43,6 +44,18 @@
 - (void)setEarned_pointsValue:(int)value_;
 
 //- (BOOL)validateEarned_points:(id*)value_ error:(NSError**)error_;
+
+
+
+
+@property (nonatomic, retain) NSNumber *isActive;
+
+
+@property BOOL isActiveValue;
+- (BOOL)isActiveValue;
+- (void)setIsActiveValue:(BOOL)value_;
+
+//- (BOOL)validateIsActive:(id*)value_ error:(NSError**)error_;
 
 
 
@@ -148,6 +161,15 @@
 
 - (int)primitiveEarned_pointsValue;
 - (void)setPrimitiveEarned_pointsValue:(int)value_;
+
+
+
+
+- (NSNumber*)primitiveIsActive;
+- (void)setPrimitiveIsActive:(NSNumber*)value;
+
+- (BOOL)primitiveIsActiveValue;
+- (void)setPrimitiveIsActiveValue:(BOOL)value_;
 
 
 

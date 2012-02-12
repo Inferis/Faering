@@ -71,6 +71,13 @@
 		E2AA690C14E5BEC1007262B7 /* UIColor+Hex.m in Sources */ = {isa = PBXBuildFile; fileRef = E2AA690A14E5BEC1007262B7 /* UIColor+Hex.m */; };
 		E2AA691014E5C3A4007262B7 /* sims.png in Resources */ = {isa = PBXBuildFile; fileRef = E2AA690E14E5C3A4007262B7 /* sims.png */; };
 		E2AA691114E5C3A4007262B7 /* sims@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E2AA690F14E5C3A4007262B7 /* sims@2x.png */; };
+		E2AA691314E5DE8D007262B7 /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = E2AA691214E5DE8D007262B7 /* Icon.png */; };
+		E2AA691514E5DEBD007262B7 /* Icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E2AA691414E5DEBD007262B7 /* Icon@2x.png */; };
+		E2AA691714E5DECA007262B7 /* Icon-ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = E2AA691614E5DECA007262B7 /* Icon-ipad.png */; };
+		E2AA691C14E809BA007262B7 /* add-account-vd-highlight.png in Resources */ = {isa = PBXBuildFile; fileRef = E2AA691814E809BA007262B7 /* add-account-vd-highlight.png */; };
+		E2AA691D14E809BA007262B7 /* add-account-vd-highlight@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E2AA691914E809BA007262B7 /* add-account-vd-highlight@2x.png */; };
+		E2AA691E14E809BA007262B7 /* add-account-vd-normal.png in Resources */ = {isa = PBXBuildFile; fileRef = E2AA691A14E809BA007262B7 /* add-account-vd-normal.png */; };
+		E2AA691F14E809BA007262B7 /* add-account-vd-normal@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E2AA691B14E809BA007262B7 /* add-account-vd-normal@2x.png */; };
 		E2B7EC0814E3532000695814 /* JSONKit.m in Sources */ = {isa = PBXBuildFile; fileRef = E2B7EC0714E3532000695814 /* JSONKit.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		E2B7EC0A14E3538B00695814 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E2B7EC0914E3538B00695814 /* CFNetwork.framework */; };
 		E2B7EC0C14E353BC00695814 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = E2B7EC0B14E353BC00695814 /* libz.dylib */; };
@@ -212,6 +219,13 @@
 		E2AA690A14E5BEC1007262B7 /* UIColor+Hex.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+Hex.m"; sourceTree = "<group>"; };
 		E2AA690E14E5C3A4007262B7 /* sims.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = sims.png; sourceTree = "<group>"; };
 		E2AA690F14E5C3A4007262B7 /* sims@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "sims@2x.png"; sourceTree = "<group>"; };
+		E2AA691214E5DE8D007262B7 /* Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Icon.png; sourceTree = "<group>"; };
+		E2AA691414E5DEBD007262B7 /* Icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon@2x.png"; sourceTree = "<group>"; };
+		E2AA691614E5DECA007262B7 /* Icon-ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-ipad.png"; sourceTree = "<group>"; };
+		E2AA691814E809BA007262B7 /* add-account-vd-highlight.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "add-account-vd-highlight.png"; sourceTree = "<group>"; };
+		E2AA691914E809BA007262B7 /* add-account-vd-highlight@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "add-account-vd-highlight@2x.png"; sourceTree = "<group>"; };
+		E2AA691A14E809BA007262B7 /* add-account-vd-normal.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "add-account-vd-normal.png"; sourceTree = "<group>"; };
+		E2AA691B14E809BA007262B7 /* add-account-vd-normal@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "add-account-vd-normal@2x.png"; sourceTree = "<group>"; };
 		E2B7EC0614E3532000695814 /* JSONKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSONKit.h; sourceTree = "<group>"; };
 		E2B7EC0714E3532000695814 /* JSONKit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSONKit.m; sourceTree = "<group>"; };
 		E2B7EC0914E3538B00695814 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
@@ -287,6 +301,9 @@
 		E20D4B9214DEAA58007A33CB = {
 			isa = PBXGroup;
 			children = (
+				E2AA691614E5DECA007262B7 /* Icon-ipad.png */,
+				E2AA691414E5DEBD007262B7 /* Icon@2x.png */,
+				E2AA691214E5DE8D007262B7 /* Icon.png */,
 				E20D4BA714DEAA58007A33CB /* Faering */,
 				E20D4BA014DEAA58007A33CB /* Frameworks */,
 				E20D4B9E14DEAA58007A33CB /* Products */,
@@ -499,6 +516,10 @@
 		E279373414E2CAD300822F86 /* assets */ = {
 			isa = PBXGroup;
 			children = (
+				E2AA691814E809BA007262B7 /* add-account-vd-highlight.png */,
+				E2AA691914E809BA007262B7 /* add-account-vd-highlight@2x.png */,
+				E2AA691A14E809BA007262B7 /* add-account-vd-normal.png */,
+				E2AA691B14E809BA007262B7 /* add-account-vd-normal@2x.png */,
 				E2AA690E14E5C3A4007262B7 /* sims.png */,
 				E2AA690F14E5C3A4007262B7 /* sims@2x.png */,
 				E279374E14E3271500822F86 /* navbar-dark@2x.png */,
@@ -710,6 +731,13 @@
 				E2ECDFEC14E4604A00CF91DB /* release_notes.txt in Resources */,
 				E2AA691014E5C3A4007262B7 /* sims.png in Resources */,
 				E2AA691114E5C3A4007262B7 /* sims@2x.png in Resources */,
+				E2AA691314E5DE8D007262B7 /* Icon.png in Resources */,
+				E2AA691514E5DEBD007262B7 /* Icon@2x.png in Resources */,
+				E2AA691714E5DECA007262B7 /* Icon-ipad.png in Resources */,
+				E2AA691C14E809BA007262B7 /* add-account-vd-highlight.png in Resources */,
+				E2AA691D14E809BA007262B7 /* add-account-vd-highlight@2x.png in Resources */,
+				E2AA691E14E809BA007262B7 /* add-account-vd-normal.png in Resources */,
+				E2AA691F14E809BA007262B7 /* add-account-vd-normal@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

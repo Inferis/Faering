@@ -35,7 +35,7 @@
 {
     [super viewDidLoad];
 
-    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"sims.png"] style:UIBarButtonItemStyleBordered target:self.viewDeckController action:@selector(toggleLeftView)];
+    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Sims" style:UIBarButtonItemStyleBordered target:self.viewDeckController action:@selector(toggleLeftView)];
 }
 
 - (void)viewDidUnload
