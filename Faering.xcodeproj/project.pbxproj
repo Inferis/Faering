@@ -86,6 +86,7 @@
 		E2AA692E14E87BC7007262B7 /* left-disclosure-detail@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E2AA692C14E87BC7007262B7 /* left-disclosure-detail@2x.png */; };
 		E2AA693114E87D17007262B7 /* left-disclosure-detail-highlight.png in Resources */ = {isa = PBXBuildFile; fileRef = E2AA692F14E87D17007262B7 /* left-disclosure-detail-highlight.png */; };
 		E2AA693214E87D17007262B7 /* left-disclosure-detail-highlight@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E2AA693014E87D17007262B7 /* left-disclosure-detail-highlight@2x.png */; };
+		E2AA694814E97422007262B7 /* MVNotificationHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = E2AA694714E97422007262B7 /* MVNotificationHandler.m */; };
 		E2B7EC0814E3532000695814 /* JSONKit.m in Sources */ = {isa = PBXBuildFile; fileRef = E2B7EC0714E3532000695814 /* JSONKit.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		E2B7EC0A14E3538B00695814 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E2B7EC0914E3538B00695814 /* CFNetwork.framework */; };
 		E2B7EC0C14E353BC00695814 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = E2B7EC0B14E353BC00695814 /* libz.dylib */; };
@@ -244,6 +245,8 @@
 		E2AA692C14E87BC7007262B7 /* left-disclosure-detail@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "left-disclosure-detail@2x.png"; sourceTree = "<group>"; };
 		E2AA692F14E87D17007262B7 /* left-disclosure-detail-highlight.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "left-disclosure-detail-highlight.png"; sourceTree = "<group>"; };
 		E2AA693014E87D17007262B7 /* left-disclosure-detail-highlight@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "left-disclosure-detail-highlight@2x.png"; sourceTree = "<group>"; };
+		E2AA694614E97422007262B7 /* MVNotificationHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MVNotificationHandler.h; sourceTree = "<group>"; };
+		E2AA694714E97422007262B7 /* MVNotificationHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MVNotificationHandler.m; sourceTree = "<group>"; };
 		E2B7EC0614E3532000695814 /* JSONKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSONKit.h; sourceTree = "<group>"; };
 		E2B7EC0714E3532000695814 /* JSONKit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSONKit.m; sourceTree = "<group>"; };
 		E2B7EC0914E3538B00695814 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
@@ -593,6 +596,8 @@
 				E2A9430F14E18A5E0042AA40 /* Sim.h */,
 				E2A9431014E18A5E0042AA40 /* Sim.m */,
 				E2A9430214E185570042AA40 /* Faering.xcdatamodeld */,
+				E2AA694614E97422007262B7 /* MVNotificationHandler.h */,
+				E2AA694714E97422007262B7 /* MVNotificationHandler.m */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -854,6 +859,7 @@
 				E2AA690C14E5BEC1007262B7 /* UIColor+Hex.m in Sources */,
 				E2AA692214E80EA7007262B7 /* UITableViewCell+AutoDequeue.m in Sources */,
 				E2AA692614E81044007262B7 /* AccountCell.m in Sources */,
+				E2AA694814E97422007262B7 /* MVNotificationHandler.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

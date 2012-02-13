@@ -9,6 +9,13 @@
 #import "MVStorage.h"
 #import "Account.h"
 
+@interface MVStorage () {
+}
+
+- (void)notify:(NSString*)notification;
+- (void)notify:(NSString*)notification with:(id)object;
+
+@end
 @implementation MVStorage
 
 
@@ -34,14 +41,25 @@ static MVStorage* _shared;
     account.accessToken = accessToken;
     [[NSManagedObjectContext contextForCurrentThread] save];
 
-    // notify
+    [self notify:MV_ACCOUNTS_CHANGED];
+    [self notify:MV_ACCOUNT_ADDED with:account];
 }
 
 - (void)removeAccount:(Account*)account {
     [account deleteEntity];
     [[NSManagedObjectContext contextForCurrentThread] save];
     
-    // notify
+    [self notify:MV_ACCOUNTS_CHANGED];
+    [self notify:MV_ACCOUNT_DELETED with:account];
+}
+
+- (void)notify:(NSString*)notification {
+    [self notify:notification with:nil];
+}
+
+- (void)notify:(NSString*)notification with:(id)object {
+    [[NSNotificationCenter defaultCenter] postNotificationName:notification object:object];
 }
 
 @end
+
