@@ -14,12 +14,15 @@
 #import "AccountCell.h"
 #import "UITableViewCell+AutoDequeue.h"
 #import "UIColor+Hex.h"
+#import "MVNotificationHandler.h"
 
 @interface AccountListController () <AddAccountDelegate, AccountCellDelegate, UIActionSheetDelegate> {
     BOOL _first;
     Account* _actionAccount;
+    MVNotificationHandler* _notifier;
 }
 @end
+
 
 @implementation AccountListController
 
@@ -32,6 +35,11 @@
 {
     [super viewDidLoad];
     
+    _notifier = [MVNotificationHandler new];
+    [_notifier onNotification:MV_ACCOUNTS_CHANGED doOnMainThread:^(id obj) {
+        [self.tableView reloadSections:[NSIndexSet indexSetWithIndex:0] withRowAnimation:UITableViewRowAnimationFade];
+    }];
+
     self.title = @"Accounts";
     self.tableView.backgroundColor = [UIColor clearColor];
     [self.tableView.backgroundView removeFromSuperview];
@@ -196,7 +204,6 @@
 - (void)addAccountController:(AddAccountController *)controller didAddAccountWithName:(NSString *)name accessToken:(NSString *)token {
     [self dismissViewControllerAnimated:YES completion:^{
         [self.viewDeckController openLeftView];
-        [self.tableView reloadSections:[NSIndexSet indexSetWithIndex:0] withRowAnimation:UITableViewRowAnimationFade];
     }];
 }
 
