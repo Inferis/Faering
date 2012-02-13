@@ -8,9 +8,13 @@
 
 #import <Foundation/Foundation.h>
 
+@class Account;
+
 @interface MVStorage : NSObject
 
 - (NSArray*)accounts;
+- (void)addAccountWithName:(NSString*)name accessToken:(NSString*)accessToken;
+- (void)removeAccount:(Account*)account;
 
 + (MVStorage*)sharedStorage;
 

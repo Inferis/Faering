@@ -11,9 +11,13 @@
 #import "Sim.h"
 #import "IIViewDeckController.h"
 #import "AddAccountController.h"
+#import "AccountCell.h"
+#import "UITableViewCell+AutoDequeue.h"
+#import "UIColor+Hex.h"
 
-@interface AccountListController () <AddAccountDelegate> {
+@interface AccountListController () <AddAccountDelegate, AccountCellDelegate, UIActionSheetDelegate> {
     BOOL _first;
+    Account* _actionAccount;
 }
 @end
 
@@ -53,10 +57,10 @@
         self.addButton.frame = (CGRect) { self.addButton.frame.origin, width, self.addButton.frame.size.height }; 
         
         if ([[[MVStorage sharedStorage] accounts] count] == 0) {
-            Account* account = [Account createEntity];
-            account.name = @"InferisPad";
-            account.accessToken = @"m.0070028";
-            [[NSManagedObjectContext contextForCurrentThread] save];
+            [[MVStorage sharedStorage] addAccountWithName:@"InferisPad" accessToken:@"m.0070028"];
+            [[MVStorage sharedStorage] addAccountWithName:@"InferisPad2" accessToken:@"m.0070028"];
+            [[MVStorage sharedStorage] addAccountWithName:@"InferisPad3" accessToken:@"m.0070028"];
+
             [self.tableView reloadData];
 //            [self pressedAdd:nil];
 //            [self.viewDeckController openLeftViewAnimated:NO];
@@ -67,6 +71,11 @@
     }
     else {
     }
+}
+
+- (BOOL)viewDeckControllerWillOpenLeftView:(IIViewDeckController*)viewDeckController animated:(BOOL)animated {
+    [self.tableView deselectRowAtIndexPath:[self.tableView indexPathForSelectedRow] animated:NO];
+    return YES;
 }
 
 - (void)viewDidAppear:(BOOL)animated
@@ -97,6 +106,29 @@
     return 1;
 }
 
+- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
+    return 26;
+}
+
+- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
+    UIView* view = [[UIView alloc] initWithFrame:(CGRect) { 0, 0, 320, 26 }];
+    view.backgroundColor = [UIColor colorWithWhite:0 alpha:0.3];
+    
+    UILabel* label = [UILabel new];
+    label.text = @"Accounts";
+    label.font = [UIFont fontWithName:@"HelveticaNeue-Bold" size:16];
+    label.textColor = [UIColor colorWithHex:0xcce4e1db];
+    label.shadowColor = [UIColor colorWithWhite:0 alpha:0.6];
+    label.shadowOffset = (CGSize) { 0, -1 }; 
+    label.frame = (CGRect) { 10, 2, 310, 22 };
+    label.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
+    label.backgroundColor = [UIColor clearColor];
+    
+    [view addSubview:label];
+        
+    return view;
+}
+
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     return [[[MVStorage sharedStorage] accounts] count];
@@ -104,69 +136,19 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    AccountCell* cell = [AccountCell tableViewDequeueCell:tableView]
-    static NSString *CellIdentifier = @"AccountCell";
-    
-    AccountCell *cell = (AccountCell*)[tableView dequeueReusableCellWithIdentifier:CellIdentifier];
-    if (cell == nil) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
-    }
-    
-    // Configure the cell...
+    AccountCell* cell = [AccountCell tableViewAutoDequeueCell:tableView];
+    [cell configure:[[[MVStorage sharedStorage] accounts] objectAtIndex:indexPath.row] delegate:self];
     
     return cell;
 }
 
-/*
-// Override to support conditional editing of the table view.
-- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    // Return NO if you do not want the specified item to be editable.
-    return YES;
-}
-*/
-
-/*
-// Override to support editing the table view.
-- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    if (editingStyle == UITableViewCellEditingStyleDelete) {
-        // Delete the row from the data source
-        [tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationFade];
-    }   
-    else if (editingStyle == UITableViewCellEditingStyleInsert) {
-        // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-    }   
-}
-*/
-
-/*
-// Override to support rearranging the table view.
-- (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath
-{
-}
-*/
-
-/*
-// Override to support conditional rearranging of the table view.
-- (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    // Return NO if you do not want the item to be re-orderable.
-    return YES;
-}
-*/
 
 #pragma mark - Table view delegate
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    // Navigation logic may go here. Create and push another view controller.
-    /*
-     <#DetailViewController#> *detailViewController = [[<#DetailViewController#> alloc] initWithNibName:@"<#Nib name#>" bundle:nil];
-     // ...
-     // Pass the selected object to the new view controller.
-     [self.navigationController pushViewController:detailViewController animated:YES];
-     */
+    [self.viewDeckController closeLeftViewBouncing:^(IIViewDeckController *controller) {
+    }];
 }
 
 #pragma mark - Actions 
@@ -180,9 +162,33 @@
 
 
 - (IBAction)pressedSettings:(id)sender {
-//    [self presentViewController:nil animated:YES completion:^{
-//        code
-//    }];
+}
+
+#pragma mark - Account Cell Delegate
+
+- (void)accountCellDidPressDetail:(AccountCell*)cell {
+    _actionAccount = [[[MVStorage sharedStorage] accounts] objectAtIndex:[self.tableView indexPathForCell:cell].row];
+    UIActionSheet* sheet = [[UIActionSheet alloc] initWithTitle:[NSString stringWithFormat:@"What would you like to do with account '%@'?", _actionAccount.name] 
+                                                       delegate:self 
+                                              cancelButtonTitle:@"Cancel" 
+                                         destructiveButtonTitle:@"Delete" 
+                                              otherButtonTitles:@"Reauthenticate", nil];
+    [sheet showFromRect:cell.frame inView:self.view animated:YES];
+}
+
+- (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex {
+    if (buttonIndex == 0) {
+        // delete
+        [[MVStorage sharedStorage] removeAccount:_actionAccount];
+        [self.tableView reloadSections:[NSIndexSet indexSetWithIndex:0] withRowAnimation:UITableViewRowAnimationFade];
+    }
+    else if (buttonIndex == 1) {
+        // reauthenticate
+    }
+}
+
+- (void)actionSheet:(UIActionSheet *)actionSheet didDismissWithButtonIndex:(NSInteger)buttonIndex {
+    _actionAccount = nil;
 }
 
 #pragma mark - Add Account Delegate

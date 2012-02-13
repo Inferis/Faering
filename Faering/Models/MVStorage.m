@@ -28,4 +28,20 @@ static MVStorage* _shared;
     return _shared;
 }
 
+- (void)addAccountWithName:(NSString*)name accessToken:(NSString*)accessToken {
+    Account* account = [Account createEntity];
+    account.name = name;
+    account.accessToken = accessToken;
+    [[NSManagedObjectContext contextForCurrentThread] save];
+
+    // notify
+}
+
+- (void)removeAccount:(Account*)account {
+    [account deleteEntity];
+    [[NSManagedObjectContext contextForCurrentThread] save];
+    
+    // notify
+}
+
 @end

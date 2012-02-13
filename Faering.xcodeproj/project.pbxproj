@@ -78,6 +78,14 @@
 		E2AA691D14E809BA007262B7 /* add-account-vd-highlight@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E2AA691914E809BA007262B7 /* add-account-vd-highlight@2x.png */; };
 		E2AA691E14E809BA007262B7 /* add-account-vd-normal.png in Resources */ = {isa = PBXBuildFile; fileRef = E2AA691A14E809BA007262B7 /* add-account-vd-normal.png */; };
 		E2AA691F14E809BA007262B7 /* add-account-vd-normal@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E2AA691B14E809BA007262B7 /* add-account-vd-normal@2x.png */; };
+		E2AA692214E80EA7007262B7 /* UITableViewCell+AutoDequeue.m in Sources */ = {isa = PBXBuildFile; fileRef = E2AA692114E80EA7007262B7 /* UITableViewCell+AutoDequeue.m */; };
+		E2AA692614E81044007262B7 /* AccountCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E2AA692514E81044007262B7 /* AccountCell.m */; };
+		E2AA692914E81B2D007262B7 /* accounts-line.png in Resources */ = {isa = PBXBuildFile; fileRef = E2AA692714E81B2D007262B7 /* accounts-line.png */; };
+		E2AA692A14E81B2D007262B7 /* accounts-line@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E2AA692814E81B2D007262B7 /* accounts-line@2x.png */; };
+		E2AA692D14E87BC7007262B7 /* left-disclosure-detail.png in Resources */ = {isa = PBXBuildFile; fileRef = E2AA692B14E87BC7007262B7 /* left-disclosure-detail.png */; };
+		E2AA692E14E87BC7007262B7 /* left-disclosure-detail@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E2AA692C14E87BC7007262B7 /* left-disclosure-detail@2x.png */; };
+		E2AA693114E87D17007262B7 /* left-disclosure-detail-highlight.png in Resources */ = {isa = PBXBuildFile; fileRef = E2AA692F14E87D17007262B7 /* left-disclosure-detail-highlight.png */; };
+		E2AA693214E87D17007262B7 /* left-disclosure-detail-highlight@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E2AA693014E87D17007262B7 /* left-disclosure-detail-highlight@2x.png */; };
 		E2B7EC0814E3532000695814 /* JSONKit.m in Sources */ = {isa = PBXBuildFile; fileRef = E2B7EC0714E3532000695814 /* JSONKit.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		E2B7EC0A14E3538B00695814 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E2B7EC0914E3538B00695814 /* CFNetwork.framework */; };
 		E2B7EC0C14E353BC00695814 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = E2B7EC0B14E353BC00695814 /* libz.dylib */; };
@@ -226,6 +234,16 @@
 		E2AA691914E809BA007262B7 /* add-account-vd-highlight@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "add-account-vd-highlight@2x.png"; sourceTree = "<group>"; };
 		E2AA691A14E809BA007262B7 /* add-account-vd-normal.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "add-account-vd-normal.png"; sourceTree = "<group>"; };
 		E2AA691B14E809BA007262B7 /* add-account-vd-normal@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "add-account-vd-normal@2x.png"; sourceTree = "<group>"; };
+		E2AA692014E80EA6007262B7 /* UITableViewCell+AutoDequeue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITableViewCell+AutoDequeue.h"; sourceTree = "<group>"; };
+		E2AA692114E80EA7007262B7 /* UITableViewCell+AutoDequeue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITableViewCell+AutoDequeue.m"; sourceTree = "<group>"; };
+		E2AA692414E81044007262B7 /* AccountCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AccountCell.h; sourceTree = "<group>"; };
+		E2AA692514E81044007262B7 /* AccountCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AccountCell.m; sourceTree = "<group>"; };
+		E2AA692714E81B2D007262B7 /* accounts-line.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "accounts-line.png"; sourceTree = "<group>"; };
+		E2AA692814E81B2D007262B7 /* accounts-line@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "accounts-line@2x.png"; sourceTree = "<group>"; };
+		E2AA692B14E87BC7007262B7 /* left-disclosure-detail.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "left-disclosure-detail.png"; sourceTree = "<group>"; };
+		E2AA692C14E87BC7007262B7 /* left-disclosure-detail@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "left-disclosure-detail@2x.png"; sourceTree = "<group>"; };
+		E2AA692F14E87D17007262B7 /* left-disclosure-detail-highlight.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "left-disclosure-detail-highlight.png"; sourceTree = "<group>"; };
+		E2AA693014E87D17007262B7 /* left-disclosure-detail-highlight@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "left-disclosure-detail-highlight@2x.png"; sourceTree = "<group>"; };
 		E2B7EC0614E3532000695814 /* JSONKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSONKit.h; sourceTree = "<group>"; };
 		E2B7EC0714E3532000695814 /* JSONKit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSONKit.m; sourceTree = "<group>"; };
 		E2B7EC0914E3538B00695814 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
@@ -482,6 +500,7 @@
 		E20D4C0214DEC2E3007A33CB /* Shared */ = {
 			isa = PBXGroup;
 			children = (
+				E2AA692314E81029007262B7 /* Cells */,
 				E20D4C0514DEC354007A33CB /* SimListController.h */,
 				E20D4C0614DEC354007A33CB /* SimListController.m */,
 				E20D4C0714DEC354007A33CB /* SimListView.xib */,
@@ -516,6 +535,12 @@
 		E279373414E2CAD300822F86 /* assets */ = {
 			isa = PBXGroup;
 			children = (
+				E2AA692B14E87BC7007262B7 /* left-disclosure-detail.png */,
+				E2AA692C14E87BC7007262B7 /* left-disclosure-detail@2x.png */,
+				E2AA692F14E87D17007262B7 /* left-disclosure-detail-highlight.png */,
+				E2AA693014E87D17007262B7 /* left-disclosure-detail-highlight@2x.png */,
+				E2AA692714E81B2D007262B7 /* accounts-line.png */,
+				E2AA692814E81B2D007262B7 /* accounts-line@2x.png */,
 				E2AA691814E809BA007262B7 /* add-account-vd-highlight.png */,
 				E2AA691914E809BA007262B7 /* add-account-vd-highlight@2x.png */,
 				E2AA691A14E809BA007262B7 /* add-account-vd-normal.png */,
@@ -579,8 +604,19 @@
 				E2AA690814E5BEC1007262B7 /* UIButton+Stretchable.m */,
 				E2AA690914E5BEC1007262B7 /* UIColor+Hex.h */,
 				E2AA690A14E5BEC1007262B7 /* UIColor+Hex.m */,
+				E2AA692014E80EA6007262B7 /* UITableViewCell+AutoDequeue.h */,
+				E2AA692114E80EA7007262B7 /* UITableViewCell+AutoDequeue.m */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		E2AA692314E81029007262B7 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				E2AA692414E81044007262B7 /* AccountCell.h */,
+				E2AA692514E81044007262B7 /* AccountCell.m */,
+			);
+			name = Cells;
 			sourceTree = "<group>";
 		};
 		E2B7EC0514E3532000695814 /* JSONKit */ = {
@@ -738,6 +774,12 @@
 				E2AA691D14E809BA007262B7 /* add-account-vd-highlight@2x.png in Resources */,
 				E2AA691E14E809BA007262B7 /* add-account-vd-normal.png in Resources */,
 				E2AA691F14E809BA007262B7 /* add-account-vd-normal@2x.png in Resources */,
+				E2AA692914E81B2D007262B7 /* accounts-line.png in Resources */,
+				E2AA692A14E81B2D007262B7 /* accounts-line@2x.png in Resources */,
+				E2AA692D14E87BC7007262B7 /* left-disclosure-detail.png in Resources */,
+				E2AA692E14E87BC7007262B7 /* left-disclosure-detail@2x.png in Resources */,
+				E2AA693114E87D17007262B7 /* left-disclosure-detail-highlight.png in Resources */,
+				E2AA693214E87D17007262B7 /* left-disclosure-detail-highlight@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -810,6 +852,8 @@
 				E2ECDFFD14E46DE500CF91DB /* Tin+BasicAuthentication.m in Sources */,
 				E2AA690B14E5BEC1007262B7 /* UIButton+Stretchable.m in Sources */,
 				E2AA690C14E5BEC1007262B7 /* UIColor+Hex.m in Sources */,
+				E2AA692214E80EA7007262B7 /* UITableViewCell+AutoDequeue.m in Sources */,
+				E2AA692614E81044007262B7 /* AccountCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
