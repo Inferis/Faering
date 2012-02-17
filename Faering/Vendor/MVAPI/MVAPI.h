@@ -10,6 +10,6 @@
 
 @interface MVAPI : NSObject
 
-
+- (void)account:(Account*)account fetchMSISDNsCompletion:(void(^)(NSArray* result))completion;
 
 @end
