@@ -301,7 +301,7 @@
     self.view = II_AUTORELEASE([[UIView alloc] init]);
     self.view.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
     self.view.autoresizesSubviews = YES;
-    self.view.clipsToBounds = YES;
+    self.view.clipsToBounds = NO;
 }
 
 - (void)viewDidLoad {
@@ -310,7 +310,7 @@
     self.centerView = II_AUTORELEASE([[UIView alloc] init]);
     self.centerView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
     self.centerView.autoresizesSubviews = YES;
-    self.centerView.clipsToBounds = YES;
+    self.centerView.clipsToBounds = NO;
     [self.view addSubview:self.centerView];
     
     self.originalShadowRadius = 0;
