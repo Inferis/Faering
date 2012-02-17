@@ -10,4 +10,8 @@
 
 @interface SimOverlayController : UIViewController
 
+@property (nonatomic, retain, readonly) UIViewController* childController;
+
+- (id)initWithChildController:(UIViewController*)childController;
+
 @end

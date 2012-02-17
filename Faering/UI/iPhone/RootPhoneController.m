@@ -12,8 +12,34 @@
 #import "SimOverviewPhoneController.h"
 #import "SimUsagePhoneController.h"
 #import "SimTopupsPhoneController.h"
+#import "SimOverlayController.h"
 #import "Coby.h"
 #import "UIColor+Hex.h"
+
+@interface UIView (RecursiveClips) 
+
+- (NSString*)recursiveDescription:(NSString*(^)(UIView* view))printer;
+
+@end
+
+@implementation UIView (RecursiveClips) 
+
+- (NSString*)recursiveDescription:(NSString*(^)(UIView* view))printer prefix:(NSString*)prefix {
+    NSString* result = [NSString stringWithFormat:@"%@- (%p) %@ %@\n", prefix, self, [self class], printer(self)];
+    
+    for (UIView* view in self.subviews) {
+        result = [result stringByAppendingString:[view recursiveDescription:printer prefix:[prefix stringByAppendingString:@"  "]]];
+    }
+    
+    return result;
+}
+
+- (NSString*)recursiveDescription:(NSString*(^)(UIView* view))printer {
+    return [self recursiveDescription:printer prefix:@""];
+}
+
+@end
+
 
 @implementation RootPhoneController
 
@@ -27,13 +53,13 @@
     
     UITabBarController* tabController = [[UITabBarController alloc] init];
     tabController.viewControllers = [[NSArray arrayWithObjects:overviewController, usageController, topupsController, nil] map:^id(id obj) {
-        UINavigationController* controller = [[UINavigationController alloc] initWithRootViewController:obj];
-//        controller.navigationBar.tintColor = [UIColor colorWithHex:0xe1551e];
-//        controller.navigationBar.titleTextAttributes = [NSDictionary dictionaryWithObjectsAndKeys:[UIColor blackColor], UITextAttributeTextColor, [UIColor whiteColor], UITextAttributeTextShadowColor, [NSValue valueWithCGSize:(CGSize) { 0, 1 }], UITextAttributeTextShadowOffset, nil];
-        [controller.navigationBar setBackgroundImage:[UIImage imageNamed:@"navbar-white.png"] forBarMetrics:UIBarMetricsDefault];
+        SimOverlayController* controller = [[SimOverlayController alloc] initWithChildController:obj];
         return controller;
     }];
     
+    tabController.view.clipsToBounds = NO;
+    [[tabController.view.subviews objectAtIndex:0] setClipsToBounds:NO];
+    NSLog(@"%@", [tabController.view recursiveDescription:^(UIView* view) { return [NSString stringWithFormat:@"clips = %d", view.clipsToBounds]; }]);
     self = [super initWithCenterViewController:tabController leftViewController:leftController];
     if (self) {
         // Custom initialization
@@ -59,13 +85,13 @@
 }
 */
 
-/*
+
 // Implement viewDidLoad to do additional setup after loading the view, typically from a nib.
 - (void)viewDidLoad
 {
     [super viewDidLoad];
 }
-*/
+
 
 - (void)viewDidUnload
 {

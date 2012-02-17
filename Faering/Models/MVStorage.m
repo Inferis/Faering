@@ -53,6 +53,9 @@ static MVStorage* _shared;
     [self notify:MV_ACCOUNT_DELETED with:account];
 }
 
+
+#pragma mark - 
+
 - (void)notify:(NSString*)notification {
     [self notify:notification with:nil];
 }

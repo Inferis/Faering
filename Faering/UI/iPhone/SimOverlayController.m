@@ -8,23 +8,28 @@
 
 #import "SimOverlayController.h"
 
+@interface SimOverlayController ()
+
+@property (nonatomic, retain) IBOutlet UIView* childView;
+@property (nonatomic, retain) IBOutlet UIView* labelView;
+
+@end
+
 @implementation SimOverlayController
 
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
-{
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-    if (self) {
-        // Custom initialization
-    }
-    return self;
+@synthesize childView = _childView;
+@synthesize labelView = _labelView;
+
+- (UIViewController*)childController {
+    return [[self childViewControllers] objectAtIndex:0];
 }
 
-- (void)didReceiveMemoryWarning
-{
-    // Releases the view if it doesn't have a superview.
-    [super didReceiveMemoryWarning];
-    
-    // Release any cached data, images, etc that aren't in use.
+- (id)initWithChildController:(UIViewController*)controller {
+    if ((self = [self initWithNibName:@"SimOverlayController" bundle:nil])) {
+        [self addChildViewController:controller];
+    }
+
+    return self;
 }
 
 #pragma mark - View lifecycle
@@ -32,14 +37,18 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    // Do any additional setup after loading the view from its nib.
+    self.view.clipsToBounds = NO;
+    [self.childView addSubview:self.childController.view];
+    
+    NSLog(@"%@", self.labelView);
+    [self.labelView setNeedsLayout];
+    [self.labelView setNeedsDisplay];
 }
 
 - (void)viewDidUnload
 {
     [super viewDidUnload];
-    // Release any retained subviews of the main view.
-    // e.g. self.myOutlet = nil;
+    self.childView = nil;
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
@@ -47,5 +56,6 @@
     // Return YES for supported orientations
     return (interfaceOrientation == UIInterfaceOrientationPortrait);
 }
+
 
 @end

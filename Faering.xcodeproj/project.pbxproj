@@ -45,6 +45,8 @@
 		E20D4C2C14DED346007A33CB /* NSDictionary+Coby.m in Sources */ = {isa = PBXBuildFile; fileRef = E20D4C2514DED346007A33CB /* NSDictionary+Coby.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		E20D4C2D14DED346007A33CB /* NSObject+Coby.m in Sources */ = {isa = PBXBuildFile; fileRef = E20D4C2714DED346007A33CB /* NSObject+Coby.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		E20D4C2E14DED346007A33CB /* NSString+Coby.m in Sources */ = {isa = PBXBuildFile; fileRef = E20D4C2914DED346007A33CB /* NSString+Coby.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		E2659E1114EBEA5F00160565 /* SimOverlayController.m in Sources */ = {isa = PBXBuildFile; fileRef = E2659E0F14EBEA5F00160565 /* SimOverlayController.m */; };
+		E2659E1214EBEA5F00160565 /* SimOverlayController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E2659E1014EBEA5F00160565 /* SimOverlayController.xib */; };
 		E279370114E1D9AB00822F86 /* AddAccountController.m in Sources */ = {isa = PBXBuildFile; fileRef = E27936FF14E1D9AB00822F86 /* AddAccountController.m */; };
 		E279370214E1D9AB00822F86 /* AddAccountView.xib in Resources */ = {isa = PBXBuildFile; fileRef = E279370014E1D9AB00822F86 /* AddAccountView.xib */; };
 		E279373714E2CAD300822F86 /* left-bg.png in Resources */ = {isa = PBXBuildFile; fileRef = E279373514E2CAD300822F86 /* left-bg.png */; };
@@ -189,6 +191,9 @@
 		E20D4C2714DED346007A33CB /* NSObject+Coby.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+Coby.m"; sourceTree = "<group>"; };
 		E20D4C2814DED346007A33CB /* NSString+Coby.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+Coby.h"; sourceTree = "<group>"; };
 		E20D4C2914DED346007A33CB /* NSString+Coby.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+Coby.m"; sourceTree = "<group>"; };
+		E2659E0E14EBEA5F00160565 /* SimOverlayController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SimOverlayController.h; sourceTree = "<group>"; };
+		E2659E0F14EBEA5F00160565 /* SimOverlayController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SimOverlayController.m; sourceTree = "<group>"; };
+		E2659E1014EBEA5F00160565 /* SimOverlayController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SimOverlayController.xib; sourceTree = "<group>"; };
 		E27936FE14E1D9AB00822F86 /* AddAccountController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddAccountController.h; sourceTree = "<group>"; };
 		E27936FF14E1D9AB00822F86 /* AddAccountController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = AddAccountController.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		E279370014E1D9AB00822F86 /* AddAccountView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AddAccountView.xib; sourceTree = "<group>"; };
@@ -496,6 +501,9 @@
 				E20D4C1914DEC577007A33CB /* SimTopupsPhoneController.h */,
 				E20D4C1A14DEC577007A33CB /* SimTopupsPhoneController.m */,
 				E20D4C1B14DEC578007A33CB /* SimTopupsPhoneView.xib */,
+				E2659E0E14EBEA5F00160565 /* SimOverlayController.h */,
+				E2659E0F14EBEA5F00160565 /* SimOverlayController.m */,
+				E2659E1014EBEA5F00160565 /* SimOverlayController.xib */,
 			);
 			path = iPhone;
 			sourceTree = "<group>";
@@ -785,6 +793,7 @@
 				E2AA692E14E87BC7007262B7 /* left-disclosure-detail@2x.png in Resources */,
 				E2AA693114E87D17007262B7 /* left-disclosure-detail-highlight.png in Resources */,
 				E2AA693214E87D17007262B7 /* left-disclosure-detail-highlight@2x.png in Resources */,
+				E2659E1214EBEA5F00160565 /* SimOverlayController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -860,6 +869,7 @@
 				E2AA692214E80EA7007262B7 /* UITableViewCell+AutoDequeue.m in Sources */,
 				E2AA692614E81044007262B7 /* AccountCell.m in Sources */,
 				E2AA694814E97422007262B7 /* MVNotificationHandler.m in Sources */,
+				E2659E1114EBEA5F00160565 /* SimOverlayController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
