@@ -49,28 +49,41 @@
     return self;
 }
 
+- (NSString*)bodyString {
+    return self.body ? [[[NSString alloc] initWithData:self.body encoding:NSUTF8StringEncoding] autorelease] : nil;
+}
+
 - (id)parsedResponse {
     if (!_didParse) {
         _didParse = YES;
         NSError* error = nil;
+        id parsedResponse = nil;
         switch (self.parseMethod) {
             case TinFormURLParseMethod:
-                self.parsedResponse = [self splitQuery:self.body];
+                parsedResponse = [self splitQuery:self.body];
                 break;
                 
             case TinJSONParseMethod:
-                self.parsedResponse = AFJSONDecode(self.body, &error);   
+                if (self.body) {
+                    parsedResponse = AFJSONDecode(self.body, &error);   
+                }
                 break;
                 
             default:
-                self.parsedResponse = self.body;
+                parsedResponse = self.body;
                 break;
         }
+        
+        if ([self respondsToSelector:@selector(transformParsedResponse:)]) 
+            parsedResponse = [self performSelector:@selector(transformParsedResponse:) withObject:parsedResponse];
+        [_parsedResponse release]; // should be nil but can't hurt
+        _parsedResponse = [parsedResponse retain];
         if (error) self.error = error;
     }
-
+    
     return _parsedResponse;
 }
+
 
 #pragma mark - Utility
 
@@ -126,7 +139,7 @@
 - (void)dealloc {
 	self.client = nil;
     self.URL = nil;
-    self.parsedResponse = nil;
+    [_parsedResponse release];
     self.error = nil;
     self.body = nil;
     

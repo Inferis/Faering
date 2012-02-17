@@ -1,6 +1,6 @@
 //
 //  TinOAuthAuthenticator.m
-//  Faering
+//  Created by Tom Adriaenssen on 09/02/12.
 //
 //  Based on asi-http-request-oauth, by Scott James Remnant
 //  see: https://github.com/keybuk/asi-http-request-oauth
@@ -128,8 +128,8 @@ static const NSString *oauthSignatureMethodName[] = {
     return [[[TinOAuthAuthenticator alloc] initWithClientKey:key clientSecret:secret token:token tokenSecret:tokenSecret method:method verifier:nil] autorelease];
 }
 
-+ (TinOAuthAuthenticator*)oauthAuthenticatorWithKey:(NSString*)key secret:(NSString*)secret method:(TinOAuthSignatureMethod)method token:(NSString*)token tokenSecret:(NSString*)tokenSecret verifier:(NSString *)verifier {
-    return [[[TinOAuthAuthenticator alloc] initWithClientKey:key clientSecret:secret token:nil tokenSecret:nil method:method verifier:verifier] autorelease];
++ (TinOAuthAuthenticator*)oauthAuthenticatorWithClientKey:(NSString*)key clientSecret:(NSString*)secret token:(NSString*)token tokenSecret:(NSString*)tokenSecret method:(TinOAuthSignatureMethod)method verifier:(NSString *)verifier {
+    return [[[TinOAuthAuthenticator alloc] initWithClientKey:key clientSecret:secret token:token tokenSecret:tokenSecret method:method verifier:verifier] autorelease];
 }
 
 #pragma mark - Timestamp and nonce handling
