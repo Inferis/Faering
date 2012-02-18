@@ -57,5 +57,9 @@
     return (interfaceOrientation == UIInterfaceOrientationPortrait);
 }
 
+- (UITabBarItem *)tabBarItem {
+    return self.childController.tabBarItem;
+}
+
 
 @end

@@ -17,6 +17,7 @@
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         self.title = @"Topups";
+        self.tabBarItem.image = [UIImage imageNamed:@"icon-topups.png"];
     }
     return self;
 }

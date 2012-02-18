@@ -15,8 +15,6 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-
-    self.title = @"InferisPad";
 }
 
 - (void)viewDidUnload

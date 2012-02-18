@@ -40,6 +40,28 @@
 
 @end
 
+@interface UITabBar (Layout) 
+
+@end
+
+@implementation UITabBar (Layout)
+
+- (void)layoutSubviews {
+    [super layoutSubviews];
+    
+    int i = 0;
+    CGFloat w = CGRectGetWidth(self.bounds)/4.0;
+    for (UIView* view in [self subviews]) {
+        if ([NSStringFromClass([view class]) isEqualToString:@"UITabBarButton"]) {
+            view.frame = (CGRect) { (i+0.5)*w, view.frame.origin.y, w, view.frame.size.height };
+            i++;
+        }
+        NSLog(@"%@", [view debugDescription]);
+    }
+}
+
+@end
+
 
 @implementation RootPhoneController
 
@@ -59,7 +81,6 @@
     
     tabController.view.clipsToBounds = NO;
     [[tabController.view.subviews objectAtIndex:0] setClipsToBounds:NO];
-    NSLog(@"%@", [tabController.view recursiveDescription:^(UIView* view) { return [NSString stringWithFormat:@"clips = %d", view.clipsToBounds]; }]);
     self = [super initWithCenterViewController:tabController leftViewController:leftController];
     if (self) {
         // Custom initialization
