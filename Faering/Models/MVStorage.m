@@ -3,7 +3,7 @@
 //  Faering
 //
 //  Created by Tom Adriaenssen on 07/02/12.
-//  Copyright (c) 2012 Adriaenssen BVBA. All rights reserved.
+//  Copyright (c) 2012      BVBA. All rights reserved.
 //
 
 #import "MVStorage.h"
@@ -18,6 +18,22 @@
 @end
 @implementation MVStorage
 
+- (void)setActiveAccount:(Account *)activeAccount {
+    for (Account* account in [Account findAllWithPredicate:[NSPredicate predicateWithFormat:@"isActive == YES"]]) {
+        account.isActiveValue = NO;
+    }
+
+    if (activeAccount) {
+        Account* account = (Account*)[[NSManagedObjectContext contextForCurrentThread] objectWithID:activeAccount.objectID];
+        account.isActiveValue = YES;
+    }
+    
+    [[NSManagedObjectContext contextForCurrentThread] save];
+}
+
+- (Account*)activeAccount {
+    return [Account findFirstByAttribute:@"isActive" withValue:[NSNumber numberWithBool:YES]];
+}
 
 - (NSArray*)accounts {
     return [Account MR_findAllSortedBy:@"name" ascending:YES];

@@ -13,7 +13,7 @@
 }
 
 - (void)onNotification:(NSString*)notification onMainThread:(BOOL)onMainThread do:(void(^)(id obj))block;
-+ (void)runOnMainThread:(void(^)(void))block;
+- (void)runOnMainThread:(void(^)(void))block;
 
 @end
 

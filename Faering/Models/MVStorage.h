@@ -16,6 +16,8 @@
 
 @interface MVStorage : NSObject
 
+@property (nonatomic, strong) Account* activeAccount;
+
 - (NSArray*)accounts;
 - (void)addAccountWithName:(NSString*)name accessToken:(NSString*)accessToken;
 - (void)removeAccount:(Account*)account;

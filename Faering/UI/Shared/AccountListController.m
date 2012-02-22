@@ -15,8 +15,9 @@
 #import "UITableViewCell+AutoDequeue.h"
 #import "UIColor+Hex.h"
 #import "MVNotificationHandler.h"
+#import "SimListController.h"
 
-@interface AccountListController () <AddAccountDelegate, AccountCellDelegate, UIActionSheetDelegate> {
+@interface AccountListController () <AddAccountDelegate, UIActionSheetDelegate> {
     BOOL _first;
     Account* _actionAccount;
     MVNotificationHandler* _notifier;
@@ -35,6 +36,9 @@
 {
     [super viewDidLoad];
     
+    self.tableView.frame = (CGRect) { self.tableView.frame.origin, self.tableView.frame.size.width - self.viewDeckController.leftLedge, self.tableView.frame.size.height };
+    self.tableView.allowsSelectionDuringEditing = YES;
+
     _notifier = [MVNotificationHandler new];
     [_notifier onNotification:MV_ACCOUNTS_CHANGED doOnMainThread:^(id obj) {
         [self.tableView reloadSections:[NSIndexSet indexSetWithIndex:0] withRowAnimation:UITableViewRowAnimationFade];
@@ -44,6 +48,11 @@
     self.tableView.backgroundColor = [UIColor clearColor];
     [self.tableView.backgroundView removeFromSuperview];
     _first = YES;
+    
+    if ([[MVStorage sharedStorage] activeAccount]) {
+        SimListController* simListController = [[SimListController alloc] initWithNibName:@"SimListView" bundle:nil]; 
+        [self.navigationController pushViewController:simListController animated:NO];
+    }
 }
 
 - (void)viewDidUnload
@@ -128,26 +137,43 @@
     label.textColor = [UIColor colorWithHex:0xcce4e1db];
     label.shadowColor = [UIColor colorWithWhite:0 alpha:0.6];
     label.shadowOffset = (CGSize) { 0, -1 }; 
-    label.frame = (CGRect) { 10, 2, 310, 22 };
+    label.frame = (CGRect) { 10, 2, 220, 22 };
     label.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
     label.backgroundColor = [UIColor clearColor];
-    
     [view addSubview:label];
+    
+    UIButton* editButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+    editButton.frame = (CGRect) { 235, 2, 70, 20 };
+    editButton.autoresizingMask = UIViewAutoresizingFlexibleLeftMargin | UIViewAutoresizingFlexibleHeight;
+    [editButton setTintColor:[UIColor darkGrayColor]];
+    [editButton setTitle:@"Edit" forState:UIControlStateNormal];
+    editButton.titleLabel.font = [UIFont fontWithName:@"HelveticaNeue-Bold" size:12];
+    [editButton addTarget:self action:@selector(editPressed:) forControlEvents:UIControlEventTouchUpInside];
+    [view addSubview:editButton];
         
     return view;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return [[[MVStorage sharedStorage] accounts] count];
+    int count = [[[MVStorage sharedStorage] accounts] count] + (tableView.editing ? 1 : 0);
+    NSLog(@"count = %d", count);
+    return count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    AccountCell* cell = [AccountCell tableViewAutoDequeueCell:tableView];
-    [cell configure:[[[MVStorage sharedStorage] accounts] objectAtIndex:indexPath.row] delegate:self];
-    
-    return cell;
+    if (tableView.editing && indexPath.row == 0) {
+        LeftCellBase* cell = [LeftCellBase tableViewAutoDequeueCell:tableView];
+        cell.textLabel.text = @"Add Account";
+        cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+        return cell;
+    }
+    else {
+        AccountCell* cell = [AccountCell tableViewAutoDequeueCell:tableView];
+        [cell configure:[[[MVStorage sharedStorage] accounts] objectAtIndex:indexPath.row-tableView.editing ? 1 : 0]];
+        return cell;
+    }
 }
 
 
@@ -155,11 +181,42 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    [self.viewDeckController closeLeftViewBouncing:^(IIViewDeckController *controller) {
-    }];
+    if (tableView.editing && indexPath.row == 0) {
+        [self pressedAdd:nil];
+    }
+    else {
+        Account* account = [[[MVStorage sharedStorage] accounts] objectAtIndex:indexPath.row];
+        [[MVStorage sharedStorage] setActiveAccount:account]; 
+        SimListController* simListController = [[SimListController alloc] initWithNibName:@"SimListView" bundle:nil]; 
+        [self.navigationController pushViewController:simListController animated:NO];
+    }
+}
+
+- (UITableViewCellEditingStyle)tableView:(UITableView *)tableView editingStyleForRowAtIndexPath:(NSIndexPath *)indexPath {
+    return tableView.editing ? UITableViewCellEditingStyleNone : UITableViewCellEditingStyleDelete;
+}
+
+- (NSIndexPath *)tableView:(UITableView *)tableView willSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    if (!tableView.editing || indexPath.row == 0) {
+        return indexPath;
+    }
+    
+    return nil;
 }
 
 #pragma mark - Actions 
+
+- (void)editPressed:(id)sender {
+    UIButton* editButton = sender;
+    BOOL wasEditing = self.tableView.editing;
+    [editButton setTitle:wasEditing ? @"Edit" : @"Done" forState:UIControlStateNormal];
+    self.tableView.editing = !self.tableView.editing;
+    if (wasEditing) {
+        [self.tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:[NSIndexPath indexPathForRow:0 inSection:0]] withRowAnimation:UITableViewRowAnimationTop];
+    }
+    else
+        [self.tableView insertRowsAtIndexPaths:[NSArray arrayWithObject:[NSIndexPath indexPathForRow:0 inSection:0]] withRowAnimation:UITableViewRowAnimationTop];
+}
 
 - (IBAction)pressedAdd:(id)sender {
     AddAccountController* controller = [[AddAccountController alloc] initWithNibName:@"AddAccountView" bundle:nil];

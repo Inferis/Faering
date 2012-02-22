@@ -7,18 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "LeftCellBase.h"
 
 @class Account;
-@class AccountCell;
 
-@protocol AccountCellDelegate <NSObject>
+@interface AccountCell : LeftCellBase
 
-- (void)accountCellDidPressDetail:(AccountCell*)cell;
-
-@end
-
-@interface AccountCell : UITableViewCell
-
-- (void)configure:(Account*)account delegate:(id<AccountCellDelegate>) delegate;
+- (void)configure:(Account*)account;
 
 @end

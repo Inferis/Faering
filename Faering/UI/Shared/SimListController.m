@@ -7,8 +7,20 @@
 //
 
 #import "SimListController.h"
+#import "MVNotificationHandler.h"
+#import "SimCell.h"
+
+#pragma mark - View lifecycle
+
+@interface SimListController ()  {
+    MVNotificationHandler* _notifier;
+}
+@end
+
 
 @implementation SimListController
+
+@synthesize tableView = _tableView;
 
 #pragma mark - View lifecycle
 
