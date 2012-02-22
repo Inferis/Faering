@@ -7,7 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "HasSim.h"
 
-@interface SimTopupsPhoneController : UITableViewController
+@interface SimTopupsPhoneController : UITableViewController<HasSim>
 
 @end

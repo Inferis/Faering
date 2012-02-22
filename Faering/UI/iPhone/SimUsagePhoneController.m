@@ -11,6 +11,8 @@
 
 @implementation SimUsagePhoneController
 
+@synthesize sim = _sim;
+
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil 
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];

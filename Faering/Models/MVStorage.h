@@ -13,14 +13,16 @@
 #define MV_ACCOUNT_DELETED @"MV_ACCOUNTS_DELETED"
 
 @class Account;
+@class Sim;
 
 @interface MVStorage : NSObject
 
 @property (nonatomic, strong) Account* activeAccount;
-
 - (NSArray*)accounts;
 - (void)addAccountWithName:(NSString*)name accessToken:(NSString*)accessToken;
 - (void)removeAccount:(Account*)account;
+
+- (void)refreshSimsForActiveAccount;
 
 + (MVStorage*)sharedStorage;
 

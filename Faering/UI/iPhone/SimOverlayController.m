@@ -20,6 +20,14 @@
 @synthesize childView = _childView;
 @synthesize labelView = _labelView;
 
+- (void)setSim:(Sim *)sim {
+    [self.childController setSim:sim];
+}
+
+- (Sim *)sim {
+    return [self.childController sim];
+}
+
 - (UIViewController*)childController {
     return [[self childViewControllers] objectAtIndex:0];
 }

@@ -36,19 +36,19 @@
 {
     [super viewDidLoad];
     
+    self.title = @"Accounts";
+    _first = YES;
+    
     self.tableView.frame = (CGRect) { self.tableView.frame.origin, self.tableView.frame.size.width - self.viewDeckController.leftLedge, self.tableView.frame.size.height };
     self.tableView.allowsSelectionDuringEditing = YES;
+    self.tableView.backgroundColor = [UIColor clearColor];
+    [self.tableView.backgroundView removeFromSuperview];
 
     _notifier = [MVNotificationHandler new];
     [_notifier onNotification:MV_ACCOUNTS_CHANGED doOnMainThread:^(id obj) {
         [self.tableView reloadSections:[NSIndexSet indexSetWithIndex:0] withRowAnimation:UITableViewRowAnimationFade];
     }];
 
-    self.title = @"Accounts";
-    self.tableView.backgroundColor = [UIColor clearColor];
-    [self.tableView.backgroundView removeFromSuperview];
-    _first = YES;
-    
     if ([[MVStorage sharedStorage] activeAccount]) {
         SimListController* simListController = [[SimListController alloc] initWithNibName:@"SimListView" bundle:nil]; 
         [self.navigationController pushViewController:simListController animated:NO];
@@ -58,6 +58,7 @@
 - (void)viewDidUnload
 {
     [super viewDidUnload];
+    _notifier = nil;
 }
 
 - (void)viewWillAppear:(BOOL)animated
@@ -188,7 +189,7 @@
         Account* account = [[[MVStorage sharedStorage] accounts] objectAtIndex:indexPath.row];
         [[MVStorage sharedStorage] setActiveAccount:account]; 
         SimListController* simListController = [[SimListController alloc] initWithNibName:@"SimListView" bundle:nil]; 
-        [self.navigationController pushViewController:simListController animated:NO];
+        [self.navigationController pushViewController:simListController animated:YES];
     }
 }
 

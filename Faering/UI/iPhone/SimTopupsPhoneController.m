@@ -11,6 +11,7 @@
 
 @implementation SimTopupsPhoneController
 
+@synthesize sim = _sim;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil 
 {

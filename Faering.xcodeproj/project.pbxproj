@@ -46,6 +46,13 @@
 		E20D4C2D14DED346007A33CB /* NSObject+Coby.m in Sources */ = {isa = PBXBuildFile; fileRef = E20D4C2714DED346007A33CB /* NSObject+Coby.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		E20D4C2E14DED346007A33CB /* NSString+Coby.m in Sources */ = {isa = PBXBuildFile; fileRef = E20D4C2914DED346007A33CB /* NSString+Coby.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		E246E7D614F58AE60040B4C5 /* SimCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E246E7D514F58AE60040B4C5 /* SimCell.m */; };
+		E246E7DA14F5A0830040B4C5 /* ReturnCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E246E7D914F5A0830040B4C5 /* ReturnCell.m */; };
+		E246E7DD14F5A1BC0040B4C5 /* PlaceHolderCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E246E7DC14F5A1BC0040B4C5 /* PlaceHolderCell.m */; };
+		E246E7E114F5A7F50040B4C5 /* SimTabBarPhoneController.m in Sources */ = {isa = PBXBuildFile; fileRef = E246E7E014F5A7F50040B4C5 /* SimTabBarPhoneController.m */; };
+		E246E7E614F5AB170040B4C5 /* left-backarrow-highlight.png in Resources */ = {isa = PBXBuildFile; fileRef = E246E7E214F5AB170040B4C5 /* left-backarrow-highlight.png */; };
+		E246E7E714F5AB170040B4C5 /* left-backarrow-highlight@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E246E7E314F5AB170040B4C5 /* left-backarrow-highlight@2x.png */; };
+		E246E7E814F5AB170040B4C5 /* left-backarrow-normal.png in Resources */ = {isa = PBXBuildFile; fileRef = E246E7E414F5AB170040B4C5 /* left-backarrow-normal.png */; };
+		E246E7E914F5AB170040B4C5 /* left-backarrow-normal@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E246E7E514F5AB170040B4C5 /* left-backarrow-normal@2x.png */; };
 		E2659E1114EBEA5F00160565 /* SimOverlayController.m in Sources */ = {isa = PBXBuildFile; fileRef = E2659E0F14EBEA5F00160565 /* SimOverlayController.m */; };
 		E2659E1214EBEA5F00160565 /* SimOverlayController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E2659E1014EBEA5F00160565 /* SimOverlayController.xib */; };
 		E279370114E1D9AB00822F86 /* AddAccountController.m in Sources */ = {isa = PBXBuildFile; fileRef = E27936FF14E1D9AB00822F86 /* AddAccountController.m */; };
@@ -205,6 +212,17 @@
 		E20D4C2914DED346007A33CB /* NSString+Coby.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+Coby.m"; sourceTree = "<group>"; };
 		E246E7D414F58AE60040B4C5 /* SimCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SimCell.h; sourceTree = "<group>"; };
 		E246E7D514F58AE60040B4C5 /* SimCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SimCell.m; sourceTree = "<group>"; };
+		E246E7D814F5A0830040B4C5 /* ReturnCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReturnCell.h; sourceTree = "<group>"; };
+		E246E7D914F5A0830040B4C5 /* ReturnCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ReturnCell.m; sourceTree = "<group>"; };
+		E246E7DB14F5A1BC0040B4C5 /* PlaceHolderCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlaceHolderCell.h; sourceTree = "<group>"; };
+		E246E7DC14F5A1BC0040B4C5 /* PlaceHolderCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlaceHolderCell.m; sourceTree = "<group>"; };
+		E246E7DE14F5A7590040B4C5 /* HasSim.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HasSim.h; sourceTree = "<group>"; };
+		E246E7DF14F5A7F40040B4C5 /* SimTabBarPhoneController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SimTabBarPhoneController.h; sourceTree = "<group>"; };
+		E246E7E014F5A7F50040B4C5 /* SimTabBarPhoneController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SimTabBarPhoneController.m; sourceTree = "<group>"; };
+		E246E7E214F5AB170040B4C5 /* left-backarrow-highlight.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "left-backarrow-highlight.png"; sourceTree = "<group>"; };
+		E246E7E314F5AB170040B4C5 /* left-backarrow-highlight@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "left-backarrow-highlight@2x.png"; sourceTree = "<group>"; };
+		E246E7E414F5AB170040B4C5 /* left-backarrow-normal.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "left-backarrow-normal.png"; sourceTree = "<group>"; };
+		E246E7E514F5AB170040B4C5 /* left-backarrow-normal@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "left-backarrow-normal@2x.png"; sourceTree = "<group>"; };
 		E2659E0E14EBEA5F00160565 /* SimOverlayController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SimOverlayController.h; sourceTree = "<group>"; };
 		E2659E0F14EBEA5F00160565 /* SimOverlayController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SimOverlayController.m; sourceTree = "<group>"; };
 		E2659E1014EBEA5F00160565 /* SimOverlayController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SimOverlayController.xib; sourceTree = "<group>"; };
@@ -530,6 +548,8 @@
 				E2659E0E14EBEA5F00160565 /* SimOverlayController.h */,
 				E2659E0F14EBEA5F00160565 /* SimOverlayController.m */,
 				E2659E1014EBEA5F00160565 /* SimOverlayController.xib */,
+				E246E7DF14F5A7F40040B4C5 /* SimTabBarPhoneController.h */,
+				E246E7E014F5A7F50040B4C5 /* SimTabBarPhoneController.m */,
 			);
 			path = iPhone;
 			sourceTree = "<group>";
@@ -547,6 +567,7 @@
 				E27936FE14E1D9AB00822F86 /* AddAccountController.h */,
 				E27936FF14E1D9AB00822F86 /* AddAccountController.m */,
 				E279370014E1D9AB00822F86 /* AddAccountView.xib */,
+				E246E7DE14F5A7590040B4C5 /* HasSim.h */,
 			);
 			path = Shared;
 			sourceTree = "<group>";
@@ -572,6 +593,10 @@
 		E279373414E2CAD300822F86 /* assets */ = {
 			isa = PBXGroup;
 			children = (
+				E246E7E214F5AB170040B4C5 /* left-backarrow-highlight.png */,
+				E246E7E314F5AB170040B4C5 /* left-backarrow-highlight@2x.png */,
+				E246E7E414F5AB170040B4C5 /* left-backarrow-normal.png */,
+				E246E7E514F5AB170040B4C5 /* left-backarrow-normal@2x.png */,
 				E2A4F02914F2C21600CC56C2 /* left-arrow-highlight.png */,
 				E2A4F02A14F2C21600CC56C2 /* left-arrow-highlight@2x.png */,
 				E2A4F02B14F2C21600CC56C2 /* left-arrow-normal.png */,
@@ -668,6 +693,10 @@
 				E2AA692514E81044007262B7 /* AccountCell.m */,
 				E246E7D414F58AE60040B4C5 /* SimCell.h */,
 				E246E7D514F58AE60040B4C5 /* SimCell.m */,
+				E246E7D814F5A0830040B4C5 /* ReturnCell.h */,
+				E246E7D914F5A0830040B4C5 /* ReturnCell.m */,
+				E246E7DB14F5A1BC0040B4C5 /* PlaceHolderCell.h */,
+				E246E7DC14F5A1BC0040B4C5 /* PlaceHolderCell.m */,
 			);
 			name = Cells;
 			sourceTree = "<group>";
@@ -844,6 +873,10 @@
 				E2A4F02E14F2C21600CC56C2 /* left-arrow-highlight@2x.png in Resources */,
 				E2A4F02F14F2C21600CC56C2 /* left-arrow-normal.png in Resources */,
 				E2A4F03014F2C21600CC56C2 /* left-arrow-normal@2x.png in Resources */,
+				E246E7E614F5AB170040B4C5 /* left-backarrow-highlight.png in Resources */,
+				E246E7E714F5AB170040B4C5 /* left-backarrow-highlight@2x.png in Resources */,
+				E246E7E814F5AB170040B4C5 /* left-backarrow-normal.png in Resources */,
+				E246E7E914F5AB170040B4C5 /* left-backarrow-normal@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -922,6 +955,9 @@
 				E2659E1114EBEA5F00160565 /* SimOverlayController.m in Sources */,
 				E2A4F02814F0589F00CC56C2 /* LeftCellBase.m in Sources */,
 				E246E7D614F58AE60040B4C5 /* SimCell.m in Sources */,
+				E246E7DA14F5A0830040B4C5 /* ReturnCell.m in Sources */,
+				E246E7DD14F5A1BC0040B4C5 /* PlaceHolderCell.m in Sources */,
+				E246E7E114F5A7F50040B4C5 /* SimTabBarPhoneController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

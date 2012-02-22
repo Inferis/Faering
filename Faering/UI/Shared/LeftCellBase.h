@@ -11,5 +11,6 @@
 @interface LeftCellBase : UITableViewCell
 
 - (id)initWithReuseIdentifier:(NSString *)reuseIdentifier;
+- (void)removeLine;
 
 @end

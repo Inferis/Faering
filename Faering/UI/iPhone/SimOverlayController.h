@@ -7,11 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "HasSim.h"
 
-@interface SimOverlayController : UIViewController
+@interface SimOverlayController : UIViewController<HasSim>
 
-@property (nonatomic, retain, readonly) UIViewController* childController;
+@property (nonatomic, retain, readonly) UIViewController<HasSim>* childController;
 
-- (id)initWithChildController:(UIViewController*)childController;
+- (id)initWithChildController:(UIViewController<HasSim>*)childController;
 
 @end

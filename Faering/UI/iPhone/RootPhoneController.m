@@ -13,6 +13,7 @@
 #import "SimUsagePhoneController.h"
 #import "SimTopupsPhoneController.h"
 #import "SimOverlayController.h"
+#import "SimTabBarPhoneController.h"
 #import "Coby.h"
 #import "UIColor+Hex.h"
 
@@ -69,7 +70,7 @@
     SimUsagePhoneController* usageController = [[SimUsagePhoneController alloc] initWithNibName:@"SimUsagePhoneView" bundle:nil];
     SimTopupsPhoneController* topupsController = [[SimTopupsPhoneController alloc] initWithNibName:@"SimTopupsPhoneView" bundle:nil];
     
-    UITabBarController* tabController = [[UITabBarController alloc] init];
+    SimTabBarPhoneController* tabController = [[SimTabBarPhoneController alloc] init];
     tabController.viewControllers = [[NSArray arrayWithObjects:overviewController, usageController, topupsController, nil] map:^id(id obj) {
         SimOverlayController* controller = [[SimOverlayController alloc] initWithChildController:obj];
         return controller;

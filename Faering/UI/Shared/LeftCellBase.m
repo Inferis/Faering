@@ -43,6 +43,11 @@
 }
 
 - (void)dealloc {
+    [self removeLine];
+}
+
+- (void)removeLine {
+    [_line removeFromSuperview];
     _line = nil;
 }
 

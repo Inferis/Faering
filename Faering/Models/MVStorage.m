@@ -16,6 +16,7 @@
 - (void)notify:(NSString*)notification with:(id)object;
 
 @end
+
 @implementation MVStorage
 
 - (void)setActiveAccount:(Account *)activeAccount {
@@ -67,6 +68,13 @@ static MVStorage* _shared;
     
     [self notify:MV_ACCOUNTS_CHANGED];
     [self notify:MV_ACCOUNT_DELETED with:account];
+}
+
+
+#pragma mark - sims
+
+- (void)refreshSimsForActiveAccount {
+    
 }
 
 
