@@ -88,6 +88,7 @@
         }
     }
     else {
+        [self.tableView deselectRowAtIndexPath:[self.tableView indexPathForSelectedRow] animated:NO];
     }
 }
 

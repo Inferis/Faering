@@ -8,6 +8,8 @@
 
 #import "MVStorage.h"
 #import "Account.h"
+#import "Sim.h"
+#import "MVAPI.h"
 
 @interface MVStorage () {
 }
@@ -20,6 +22,8 @@
 @implementation MVStorage
 
 - (void)setActiveAccount:(Account *)activeAccount {
+    if ([[self activeAccount].objectID isEqual:activeAccount.objectID]) return;
+    
     for (Account* account in [Account findAllWithPredicate:[NSPredicate predicateWithFormat:@"isActive == YES"]]) {
         account.isActiveValue = NO;
     }
@@ -30,6 +34,7 @@
     }
     
     [[NSManagedObjectContext contextForCurrentThread] save];
+    [self notify:MV_ACTIVEACCOUNT_CHANGED];
 }
 
 - (Account*)activeAccount {
@@ -63,8 +68,14 @@ static MVStorage* _shared;
 }
 
 - (void)removeAccount:(Account*)account {
+    BOOL wasActive = [[self activeAccount].objectID isEqual:account.objectID];
     [account deleteEntity];
     [[NSManagedObjectContext contextForCurrentThread] save];
+    
+    if (wasActive) {
+        // select first
+        [self setActiveAccount:[[self accounts] first]];
+    }
     
     [self notify:MV_ACCOUNTS_CHANGED];
     [self notify:MV_ACCOUNT_DELETED with:account];
@@ -74,7 +85,24 @@ static MVStorage* _shared;
 #pragma mark - sims
 
 - (void)refreshSimsForActiveAccount {
-    
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0), ^{
+        [NSThread sleepForTimeInterval:2];
+        Account* account = [self activeAccount];
+
+        Sim* sim1 = [Sim createEntity];
+        sim1.msisdn = @"+32495588463";
+
+        Sim* sim2 = [Sim createEntity];
+        sim2.msisdn = @"+32496419290";
+
+        Sim* sim3 = [Sim createEntity];
+        sim3.msisdn = @"+32486650141";
+
+        account.sims = [NSSet setWithObjects:sim1, sim2, sim3, nil];
+        [[NSManagedObjectContext contextForCurrentThread] save];
+        
+        [self notify:MV_ACCOUNT_SIMSUPDATED with:account];
+    });
 }
 
 

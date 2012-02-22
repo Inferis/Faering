@@ -7,6 +7,7 @@
 //
 
 #import "SimOverlayController.h"
+#import "IIViewDeckController.h"
 
 @interface SimOverlayController ()
 
@@ -69,5 +70,9 @@
     return self.childController.tabBarItem;
 }
 
+
+- (IBAction)pressedToggle:(id)sender {
+    [self.tabBarController.viewDeckController toggleLeftView];
+}
 
 @end

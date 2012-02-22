@@ -41,11 +41,6 @@
     self.tableView.allowsSelectionDuringEditing = YES;
     self.tableView.backgroundColor = [UIColor clearColor];
     [self.tableView.backgroundView removeFromSuperview];
-    
-    _notifier = [MVNotificationHandler new];
-    [_notifier onNotification:MV_ACCOUNTS_CHANGED doOnMainThread:^(id obj) {
-        [self.tableView reloadSections:[NSIndexSet indexSetWithIndex:0] withRowAnimation:UITableViewRowAnimationFade];
-    }];
 }
 
 - (void)viewDidUnload
@@ -57,8 +52,22 @@
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     
+    _notifier = [MVNotificationHandler new];
+    [_notifier onNotifications:[NSArray arrayWithObjects:MV_ACTIVEACCOUNT_CHANGED, MV_ACCOUNT_SIMSUPDATED, nil] doOnMainThread:^(id obj) {
+        Account* account = (Account*)obj;
+        if ([account.objectID isEqual:[[MVStorage sharedStorage] activeAccount].objectID]) {
+            _loading = NO;
+            [self.tableView reloadSections:[NSIndexSet indexSetWithIndex:1] withRowAnimation:UITableViewRowAnimationFade];
+        }
+    }];
+
     [[MVStorage sharedStorage] refreshSimsForActiveAccount];
     _loading = YES;
+}
+
+- (void)viewDidDisappear:(BOOL)animated {
+    [super viewDidDisappear:animated];
+    _notifier = nil;
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
@@ -163,4 +172,11 @@
     }];
 }
 
+
+#pragma mark - actions
+
+- (void)refreshPressed:(id)sender {
+    if (_loading) return;
+    [[MVStorage sharedStorage] refreshSimsForActiveAccount];
+}
 @end
