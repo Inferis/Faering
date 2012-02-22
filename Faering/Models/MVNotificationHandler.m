@@ -63,7 +63,7 @@
         [[NSNotificationCenter defaultCenter] addObserverForName:notification object:nil queue:nil usingBlock:^(NSNotification *note) {
             if (onMainThread && ![NSThread isMainThread]) {
                 [self performSelectorOnMainThread:@selector(runOnMainThread:) withObject:^() {
-                    block(note.userInfo);
+                    block([note.userInfo objectForKey:@"payload"]);
                 } waitUntilDone:YES];
             }
             else

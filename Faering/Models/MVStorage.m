@@ -85,7 +85,7 @@ static MVStorage* _shared;
 }
 
 - (void)notify:(NSString*)notification with:(id)object {
-    [[NSNotificationCenter defaultCenter] postNotificationName:notification object:object];
+    [[NSNotificationCenter defaultCenter] postNotificationName:notification object:nil userInfo:object ? [NSDictionary dictionaryWithObject:object forKey:@"payload"] : nil];
 }
 
 @end
