@@ -131,7 +131,7 @@
 
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
     UIView* view = [[UIView alloc] initWithFrame:(CGRect) { 0, 0, 320, 26 }];
-    view.backgroundColor = [UIColor colorWithWhite:0 alpha:0.3];
+    view.backgroundColor = [UIColor colorWithWhite:1 alpha:0.3];
     
     UILabel* label = [UILabel new];
     label.text = @"Accounts";
@@ -145,10 +145,10 @@
     [view addSubview:label];
     
     UIButton* editButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
-    editButton.frame = (CGRect) { 235, 2, 70, 20 };
+    editButton.frame = (CGRect) { 235, 2, 70, 22 };
     editButton.autoresizingMask = UIViewAutoresizingFlexibleLeftMargin | UIViewAutoresizingFlexibleHeight;
     [editButton setTintColor:[UIColor darkGrayColor]];
-    [editButton setTitle:@"Edit" forState:UIControlStateNormal];
+    [editButton setTitle:tableView.editing ? @"Edit" : @"Done" forState:UIControlStateNormal];
     editButton.titleLabel.font = [UIFont fontWithName:@"HelveticaNeue-Bold" size:12];
     [editButton addTarget:self action:@selector(editPressed:) forControlEvents:UIControlEventTouchUpInside];
     [view addSubview:editButton];
@@ -173,7 +173,7 @@
     }
     else {
         AccountCell* cell = [AccountCell tableViewAutoDequeueCell:tableView];
-        [cell configure:[[[MVStorage sharedStorage] accounts] objectAtIndex:indexPath.row-tableView.editing ? 1 : 0]];
+        [cell configure:[[[MVStorage sharedStorage] accounts] objectAtIndex:indexPath.row-(tableView.editing ? 1 : 0)]];
         return cell;
     }
 }
@@ -195,7 +195,7 @@
 }
 
 - (UITableViewCellEditingStyle)tableView:(UITableView *)tableView editingStyleForRowAtIndexPath:(NSIndexPath *)indexPath {
-    return tableView.editing ? UITableViewCellEditingStyleNone : UITableViewCellEditingStyleDelete;
+    return indexPath.row == 0 ? UITableViewCellEditingStyleNone : UITableViewCellEditingStyleDelete;
 }
 
 - (NSIndexPath *)tableView:(UITableView *)tableView willSelectRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -211,13 +211,14 @@
 - (void)editPressed:(id)sender {
     UIButton* editButton = sender;
     BOOL wasEditing = self.tableView.editing;
-    [editButton setTitle:wasEditing ? @"Edit" : @"Done" forState:UIControlStateNormal];
     self.tableView.editing = !self.tableView.editing;
+
     if (wasEditing) {
         [self.tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:[NSIndexPath indexPathForRow:0 inSection:0]] withRowAnimation:UITableViewRowAnimationTop];
     }
     else
         [self.tableView insertRowsAtIndexPaths:[NSArray arrayWithObject:[NSIndexPath indexPathForRow:0 inSection:0]] withRowAnimation:UITableViewRowAnimationTop];
+    [self.tableView reloadSections:[NSIndexSet indexSetWithIndex:0] withRowAnimation:UITableViewRowAnimationFade];
 }
 
 - (IBAction)pressedAdd:(id)sender {

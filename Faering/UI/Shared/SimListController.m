@@ -97,7 +97,7 @@
     if (section == 0) return nil;
     
     UIView* view = [[UIView alloc] initWithFrame:(CGRect) { 0, 0, 320, 26 }];
-    view.backgroundColor = [UIColor colorWithWhite:0 alpha:0.3];
+    view.backgroundColor = [UIColor colorWithWhite:1 alpha:0.3];
     
     UILabel* label = [UILabel new];
     label.text = [[[MVStorage sharedStorage] activeAccount] name];
@@ -111,7 +111,7 @@
     [view addSubview:label];
     
     UIButton* refreshButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
-    refreshButton.frame = (CGRect) { 235, 2, 30, 20 };
+    refreshButton.frame = (CGRect) { 235, 2, 30, 22 };
     refreshButton.autoresizingMask = UIViewAutoresizingFlexibleLeftMargin | UIViewAutoresizingFlexibleHeight;
     [refreshButton setTintColor:[UIColor darkGrayColor]];
     [refreshButton setTitle:@"R" forState:UIControlStateNormal];
