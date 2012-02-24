@@ -9,6 +9,6 @@
 #import <UIKit/UIKit.h>
 #import "HasSim.h"
 
-@interface SimOverviewPhoneController : UITableViewController<HasSim>
+@interface SimOverviewPhoneController : UIViewController<HasSim>
 
 @end
