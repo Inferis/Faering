@@ -7,11 +7,13 @@
 //
 
 #import "SimCell.h"
+#import "Sim.h"
 
 @implementation SimCell
 
 - (void)configure:(Sim*)sim {
-    
+    self.textLabel.text = sim.msisdn;
+    self.detailTextLabel.text = sim.alias;
 }
 
 @end
