@@ -89,17 +89,17 @@ static MVStorage* _shared;
         [NSThread sleepForTimeInterval:2];
         Account* account = [self activeAccount];
 
-        Sim* sim1 = [Sim createEntity];
-        sim1.msisdn = @"+32495588463";
-
-        Sim* sim2 = [Sim createEntity];
-        sim2.msisdn = @"+32496419290";
-
-        Sim* sim3 = [Sim createEntity];
-        sim3.msisdn = @"+32486650141";
-
-        account.sims = [NSSet setWithObjects:sim1, sim2, sim3, nil];
-        [[NSManagedObjectContext contextForCurrentThread] save];
+        if (!account.sims.count) {
+            Sim*(^randomSim)() = ^{
+                Sim* sim = [Sim createEntity];
+                sim.msisdn = [NSString stringWithFormat:@"+3204%d%02d%02d%02d", 70 + arc4random() % 29, arc4random() % 99, arc4random() % 99, arc4random() % 99];
+                sim.account = account;
+                return sim;
+            };
+            
+            account.sims = [NSSet setWithObjects:randomSim(), randomSim(), randomSim(), nil];
+            [[NSManagedObjectContext contextForCurrentThread] save];
+        }
         
         [self notify:MV_ACCOUNT_SIMSUPDATED with:account];
     });
